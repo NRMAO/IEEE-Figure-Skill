@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ieee-figure-preflight"
-version = "0.1.0"
-description = "Automated preflight checks for IEEE-style scientific figures"
+version = "0.2.0"
+description = "Reference-driven scientific figure generation helpers and automated IEEE-style preflight checks"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -17,10 +17,12 @@ dependencies = [
 
 [project.optional-dependencies]
 browser = ["playwright>=1.45"]
+plotting = ["matplotlib>=3.8"]
 test = ["pytest>=8.0"]
 
 [project.scripts]
 figure-preflight = "tools.figure_preflight:main"
+figure-project = "tools.create_figure_project:main"
 
 [tool.setuptools]
 packages = ["tools"]

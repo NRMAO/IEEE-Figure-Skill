@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0 — 2026-11-19
+
+- Added Reference-to-Figure workflow for extracting reusable visual design tokens from user-provided images, paper figures, PDFs, SVGs, and slides.
+- Added an evidence-labelled JSON style-profile schema and example, including confidence notes for estimated fonts, colors, dimensions, and geometry.
+- Added Matplotlib style-profile validation and mapping helpers.
+- Added a non-destructive Python figure-project scaffolder with an editable CSV-driven line/scatter/bar plotting starter.
+- Added reference-analysis guidance, reuse/copyright boundaries, and prompts for AI-generated figure-specific Python source.
+- Added automated tests for style-profile validation, project scaffolding, overwrite protection, and a real Matplotlib rendering smoke test.
+- Added an optional plotting dependency and included it in continuous integration.
+- Updated the English and Simplified Chinese READMEs with the new workflow.
+
 ## 0.3.0 — 2026-11-19
 
 - Added a runnable figure-preflight CLI for SVG, PDF, PNG, and TIFF files.

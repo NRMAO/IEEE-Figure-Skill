@@ -22,7 +22,7 @@ jobs:
       - name: Install project and test dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e ".[browser,test]"
+          python -m pip install -e ".[browser,test,plotting]"
           python -m playwright install --with-deps chromium
 
       - name: Run automated tests

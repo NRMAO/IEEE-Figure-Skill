@@ -164,6 +164,38 @@ More ideas:
 - “Inspect this RTL and draw only the data flow supported by the implementation.”
 - “Review this figure for text overflow, ambiguous colors, missing legend definitions, and export problems.”
 
+## Reference-to-Figure: turn a visual reference into a reusable style
+
+Have a figure you love? Upload it — or share a paper PDF, SVG, or slide — and ask the Skill to extract its visual language before creating a new figure from your own science.
+
+1. **Inspect the reference:** identify the exact figure or panel and visually inspect it where the runtime allows.
+2. **Extract the style:** record typography, palette, line weights, spacing, panel structure, legends, and visual hierarchy.
+3. **Save a reusable profile:** create a portable JSON style profile with confidence labels and notes for estimated properties.
+4. **Generate your figure:** combine that profile with your own methods, equations, code, images, or data.
+5. **Deliver editable Python:** generate a figure-specific .py file, run instructions, and PDF/SVG/raster exports where appropriate.
+
+The goal is to reuse design principles — **not to copy the reference figure's content, data, wording, or distinctive artwork.**
+
+### Create a Python figure project
+
+Install the optional plotting dependency:
+
+~~~bash
+python -m pip install -e ".[plotting]"
+~~~
+
+Ask your Skill-enabled AI to inspect your reference and create <code>reference-style-profile.json</code> using the repository schema. Then scaffold an editable project:
+
+~~~bash
+python tools/create_figure_project.py \
+  --profile path/to/reference-style-profile.json \
+  --output my-figure-project
+~~~
+
+The scaffold contains the style profile, a local Matplotlib style helper, an editable <code>generate_figure.py</code> starter, and <code>data/</code> / <code>output/</code> folders. The starter supports CSV-driven line, scatter, and bar plots. For architecture diagrams, flowcharts, microscopy panels, and other figure families, ask the AI to adapt the Python source to the actual scientific content.
+
+See [Reference-to-Figure documentation](docs/reference-to-figure.md), the [style-profile schema](templates/reference-to-figure/style-profile.schema.json), and the [extraction rubric](references/reference-style-extraction.md).
+
 ## Automated quality assurance
 
 Creating the figure is only half the job. The repository also includes a runnable preflight tool for measurable publication-readiness issues.
@@ -220,12 +252,15 @@ These are supported starting points, not a claim that every subfield has already
 |---|---|
 | <code>SKILL.md</code> | Main domain-neutral instructions for the agent |
 | <code>references/</code> | Publication guidance, domain routing, figure types, color, typography, ethics, and review checklists |
-| <code>templates/</code> | Reusable architecture, flowchart, timing, and plotting templates |
+| <code>templates/</code> | Reusable architecture, flowchart, timing, plotting, and reference-style templates |
+| <code>templates/reference-to-figure/</code> | Style-profile schema, example, and editable Python plotting starter |
 | <code>examples/</code> | Original examples across research domains |
 | <code>tools/figure_preflight.py</code> | Automated figure preflight command-line tool |
+| <code>tools/reference_style.py</code> | Validate extracted style profiles and apply supported Matplotlib tokens |
+| <code>tools/create_figure_project.py</code> | Scaffold an editable Python project from a style profile |
 | <code>manifests/</code> | Example metadata sidecar for figure and caption checks |
 | <code>profiles/</code> | Configurable IEEE and venue-specific screening profiles |
-| <code>docs/</code> | Detailed usage, setup, and quality-assurance documentation |
+| <code>docs/</code> | Detailed usage, reference-to-figure, setup, and quality-assurance documentation |
 | <code>tests/</code> | Automated tests |
 | <code>.github/workflows/</code> | Continuous integration for tests and example preflight |
 

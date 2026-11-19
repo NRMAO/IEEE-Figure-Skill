@@ -36,6 +36,7 @@ Use this Skill when a user asks to:
 - visualize numerical results, statistics, time series, spectra, performance, uncertainty, or ablation studies;
 - prepare scientific image panels, microscopy composites, medical-image visualizations, maps, trajectories, or spatial plots;
 - analyze figure design patterns from supplied or publicly accessible research papers;
+- extract a reusable visual style from user-provided reference images, PDF figures, SVGs, or slides and apply it to new scientific content;
 - prepare editable figure sources and publication-ready exports.
 
 Do not use it for decorative illustrations, logos, marketing graphics, or slide artwork unless the user explicitly requests a research-paper figure.
@@ -72,6 +73,52 @@ Choose one primary family and any secondary families:
 - **Multi-panel composites:** coordinated combinations of the above.
 
 Read the relevant sections of references/figure-type-guidelines.md and references/domain-routing-matrix.md.
+
+#### Optional: extract a reusable style from reference material
+
+When the user supplies a visual reference (image, figure crop, PDF, SVG, slide, or several references), activate the **Reference-to-Figure** workflow described in docs/reference-to-figure.md and references/reference-style-extraction.md.
+
+Keep two sources separate:
+
+- **Style reference:** tells you how the user wants the new figure to look.
+- **Scientific source of truth:** tells you what the new figure must communicate (data, methods, equations, source code, protocol, or user-approved description).
+
+Do not treat a style reference as evidence for the target study's scientific content. If the user supplies only a style reference but no target scientific content, ask for the content to be visualized.
+
+Inspect the actual visual whenever the runtime supports it. For a PDF, locate and render the relevant figure/page before extracting style; captions and text alone cannot establish visual properties. If only metadata or captions can be inspected, state that limitation and do not claim visual analysis.
+
+Extract and record:
+- figure family, panel count, aspect ratio, and visual hierarchy;
+- canvas/background, whitespace, alignment, grouping, and panel arrangement;
+- color roles and approximate HEX values, with confidence labels;
+- font family/weight/size hierarchy, separating observed metadata from visual estimates;
+- line widths, arrowheads, marker shapes, borders, fills, gridlines, and legend placement;
+- axis, units, scale bars, labels, and caption conventions where relevant;
+- recurring traits across references versus reference-specific choices.
+
+Create a portable JSON style profile using templates/reference-to-figure/style-profile.schema.json and the example profile. Mark each extracted value as observed, measured, visually estimated, or unknown; include confidence and source notes. Do not invent exact font names, point sizes, HEX values, or dimensions when they cannot be measured.
+
+For multiple references, identify recurring design patterns and meaningful differences. Do not average conflicting styles blindly. Ask which reference has priority only when the conflict materially changes the result.
+
+Then combine the style profile with the target scientific specification. Reuse visual principles, not the source figure's exact composition, wording, data, labels, icons, or distinctive artwork. Adapt the reference's visual language to the target figure type instead of forcing the target content into an incompatible layout.
+
+Generate a figure-specific, editable Python source file whenever Python is suitable:
+- quantitative charts: Matplotlib, reading the user's real CSV/Excel-derived data;
+- architecture and process diagrams: Matplotlib patches, Graphviz, or another editable vector-oriented approach;
+- multi-panel figures: Matplotlib GridSpec or a suitable layout engine;
+- image panels: scripts that reference original image files and preserve source pixels unless an explicitly permitted transformation is requested.
+
+Do not create synthetic measurements to make the script look complete. If data are missing, create a clearly labelled placeholder or ask for the data. Include the extracted JSON profile, Python source, input-data expectations, run instructions, and vector/raster exports as appropriate.
+
+When useful, scaffold a portable plotting project:
+
+    python tools/create_figure_project.py --profile path/to/reference-style-profile.json --output my-figure-project
+
+The scaffold is a starter, not a claim that the final figure has already been generated. Customize its generate_figure.py for the user's actual figure and data. Install the optional plotting dependency with:
+
+    python -m pip install -e ".[plotting]"
+
+See docs/reference-to-figure.md for the full workflow and limitations.
 
 ### 3. Extract the scientific model
 
@@ -220,6 +267,10 @@ See references/ieee-paper-corpus.md and references/ieee-publication-baseline.md.
 - references/visualization-ethics.md — data, image, and scientific-integrity rules.
 - references/quality-checklist.md — final quality checks.
 - docs/automated-quality-assurance.md — automated preflight workflow and limitations.
+- docs/reference-to-figure.md — reference-driven style extraction, Python project generation, and limitations.
+- references/reference-style-extraction.md — extraction rubric, confidence labels, and reuse boundaries.
+- tools/reference_style.py — validate style profiles and apply supported tokens to Matplotlib.
+- tools/create_figure_project.py — scaffold an editable project from an extracted style profile.
 - tools/figure_preflight.py — automated file, caption, color, and venue-profile checks.
 - references/paper-style-analysis.md — original hardware-focused seed corpus retained as one optional specialty case study.
 

@@ -171,6 +171,38 @@ git clone https://github.com/NRMAO/IEEE-Figure-Skill.git
 
 <a id="自动化质量检查"></a>
 
+## Reference-to-Figure：从参考图提取风格并生成科研绘图代码
+
+看到一张特别喜欢的科研图片？直接上传图片，或者提供论文 PDF、SVG 矢量图、PPT 页面，让 Skill 先提取它的视觉设计规律，再结合你自己的科研内容生成新图。
+
+1. **检查参考素材：** 确认具体使用哪张图或哪个分图；在运行环境支持的情况下，实际查看图片内容。
+2. **提取视觉风格：** 记录字体层级、配色、线宽、间距、分图结构、图例位置和视觉层次。
+3. **保存风格配置：** 生成可复用的 JSON 风格配置，并为估算出来的属性标注置信度和说明。
+4. **生成新图：** 将风格配置与你自己的研究方法、公式、代码、图片或实验数据结合。
+5. **交付可编辑 Python：** 生成针对具体图形的 .py 文件、运行说明，以及适用的 PDF/SVG/位图格式。
+
+核心原则是：**复用设计规律，而不是复制参考图中的科研内容、数据、文字或具有独特性的美术元素。**
+
+### 创建可编辑 Python 绘图项目
+
+安装可选的 Matplotlib（Python 绘图库）依赖：
+
+~~~bash
+python -m pip install -e ".[plotting]"
+~~~
+
+让装有本 Skill 的 AI 检查你的参考图片，并按照仓库中的 Schema（结构规范）生成 <code>reference-style-profile.json</code>。然后运行：
+
+~~~bash
+python tools/create_figure_project.py \
+  --profile path/to/reference-style-profile.json \
+  --output my-figure-project
+~~~
+
+程序会创建一个可编辑项目，其中包含风格配置文件、本地 Matplotlib 风格辅助模块、<code>generate_figure.py</code> 起始脚本，以及 <code>data/</code> 和 <code>output/</code> 文件夹。起始脚本支持从 CSV 数据生成折线图、散点图和柱状图。对于架构图、流程图、显微图像组合等其他类型，AI 应根据实际科研内容进一步编写对应的 Python 绘图代码。
+
+详细说明请阅读：[Reference-to-Figure 使用指南](docs/reference-to-figure.md)、[风格配置 Schema](templates/reference-to-figure/style-profile.schema.json) 和[风格提取规范](references/reference-style-extraction.md)。
+
 ## 自动化质量检查
 
 生成图片只是工作的一半。本仓库还提供了可以实际运行的图片预检工具，用于发现能够通过程序测量的投稿质量问题。
@@ -227,12 +259,15 @@ python tools/figure_preflight.py \
 |---|---|
 | <code>SKILL.md</code> | 提供给 AI Agent 使用的跨领域核心指令 |
 | <code>references/</code> | 投稿指导、领域适配、图形类型、颜色、字体、科研诚信和检查清单 |
-| <code>templates/</code> | 可复用的架构图、流程图、时序图和数据绘图模板 |
+| <code>templates/</code> | 可复用的架构图、流程图、时序图、数据图和参考风格模板 |
+| <code>templates/reference-to-figure/</code> | 风格配置 Schema、示例配置和 Python 绘图起始脚本 |
 | <code>examples/</code> | 来自多个研究领域的原创示例 |
 | <code>tools/figure_preflight.py</code> | 自动化科研图片预检命令行工具 |
+| <code>tools/reference_style.py</code> | 校验提取出的风格配置，并将支持的设计参数应用于 Matplotlib |
+| <code>tools/create_figure_project.py</code> | 根据风格配置创建可编辑 Python 绘图项目 |
 | <code>manifests/</code> | 图片及图注检查所需的示例元数据文件 |
 | <code>profiles/</code> | IEEE 通用及特定期刊的可配置检查规范 |
-| <code>docs/</code> | 详细使用说明、安装指南和质量检查文档 |
+| <code>docs/</code> | 详细使用说明、参考图驱动绘图、安装指南和质量检查文档 |
 | <code>tests/</code> | 自动化测试 |
 | <code>.github/workflows/</code> | 自动运行测试和示例图片预检的持续集成配置 |
 
