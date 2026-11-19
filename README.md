@@ -2,6 +2,8 @@
 
 # IEEE-Figure-Skill
 
+<p>🌐 <strong>Language:</strong> English | <a href="README.zh-CN.md">简体中文</a></p>
+
 <img src="assets/readme/hero.svg" alt="Design the science. Then design the figure. A domain-neutral Agent Skill for clear, editable, publication-ready scientific visuals." width="100%">
 
 <p><strong>A domain-neutral Agent Skill for publication-ready scientific figures in IEEE-style research.</strong></p>
