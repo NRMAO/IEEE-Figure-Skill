@@ -277,4 +277,6 @@ When adding publication requirements, include the official source and the date i
 
 [Back to top](#ieee-figure-skill) · [Open an issue](https://github.com/NRMAO/IEEE-Figure-Skill/issues) · [Browse the source](https://github.com/NRMAO/IEEE-Figure-Skill)
 
+<p>🌐 <strong>Language:</strong> English | <a href="README.zh-CN.md">简体中文</a></p>
+
 </div>
