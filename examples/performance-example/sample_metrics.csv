@@ -1,0 +1,13 @@
+platform,design,metric,value,unit
+ASIC,Baseline,Area,0.42,mm^2
+ASIC,Proposed,Area,0.29,mm^2
+ASIC,Baseline,Delay,2.8,ns
+ASIC,Proposed,Delay,1.9,ns
+ASIC,Baseline,Power,31.0,mW
+ASIC,Proposed,Power,22.5,mW
+FPGA,Baseline,LUT,18400,count
+FPGA,Proposed,LUT,14100,count
+FPGA,Baseline,FF,12600,count
+FPGA,Proposed,FF,9800,count
+FPGA,Baseline,Fmax,210,MHz
+FPGA,Proposed,Fmax,265,MHz

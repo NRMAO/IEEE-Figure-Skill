@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <title>IEEE timing diagram template</title>
+  <desc>Editable example with clock, valid, and data lanes. Replace edge positions and labels with actual timing data.</desc>
+  <defs>
+    <style>
+      .t{font-family:Arial,Helvetica,sans-serif;fill:#202A35}
+      .lane{stroke:#D0D5DD;stroke-width:1}
+      .wave{stroke:#2468A2;stroke-width:3;fill:none;stroke-linejoin:round}
+      .clock{stroke:#202A35;stroke-width:2.5;fill:none}
+      .ann{stroke:#D9822B;stroke-width:1.8;fill:none;stroke-dasharray:6 5}
+    </style>
+  </defs>
+  <rect width="1200" height="480" fill="white"/>
+  <text x="50" y="48" class="t" font-size="24" font-weight="bold">Timing diagram — replace with measured/specification timing</text>
+  <text x="50" y="78" class="t" font-size="15" fill="#667085">Illustrative only. The timing positions below are not a protocol specification.</text>
+  <g class="lane">
+    <path d="M180 135 H1130 M180 235 H1130 M180 335 H1130"/>
+    <path d="M180 105 V385 M370 105 V385 M560 105 V385 M750 105 V385 M940 105 V385 M1130 105 V385" stroke-dasharray="3 5"/>
+  </g>
+  <g class="t" font-size="18">
+    <text x="55" y="165">clk</text><text x="55" y="265">valid</text><text x="55" y="365">data</text>
+  </g>
+  <path class="clock" d="M180 190 V130 H275 V190 H370 V130 H465 V190 H560 V130 H655 V190 H750 V130 H845 V190 H940 V130 H1035 V190 H1130"/>
+  <path class="wave" d="M180 290 H370 V250 H750 V290 H940 V250 H1130"/>
+  <path class="wave" d="M180 390 H370 V340 H560 V390 H750 V340 H940 V390 H1130"/>
+  <g class="t" font-size="16" text-anchor="middle">
+    <text x="275" y="365">D0</text><text x="465" y="365">D1</text><text x="655" y="365">D2</text><text x="845" y="365">D3</text><text x="1035" y="365">D4</text>
+    <text x="275" y="425">T0</text><text x="465" y="425">T1</text><text x="655" y="425">T2</text><text x="845" y="425">T3</text><text x="1035" y="425">T4</text>
+  </g>
+  <path class="ann" d="M370 110 V390"/>
+  <text x="385" y="118" class="t" font-size="14" fill="#D9822B">Example event marker</text>
+</svg>

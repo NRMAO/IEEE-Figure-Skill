@@ -1,0 +1,9 @@
+flowchart TD
+    A([Start / received input]) --> B[Operation 1]
+    B --> C[Operation 2]
+    C --> D{Condition?}
+    D -- Yes --> E[Path A]
+    D -- No --> F[Path B]
+    E --> G[Merge / next stage]
+    F --> G
+    G --> H([Output])

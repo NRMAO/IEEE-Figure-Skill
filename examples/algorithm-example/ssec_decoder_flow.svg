@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1120" viewBox="0 0 1100 1120">
+  <title>Source-grounded HBM SSEC RS decoder flow</title>
+  <desc>Original summary of the comparison-based RS(19,17) single-symbol decoder described by Kwon et al. 2026. It does not add unreported bypass or detection behavior.</desc>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#202A35"/>
+    </marker>
+    <style>
+      .txt{font-family:Arial,Helvetica,sans-serif;fill:#202A35}
+      .box{stroke:#202A35;stroke-width:2;rx:10}
+      .arrow{stroke:#202A35;stroke-width:2.4;fill:none;marker-end:url(#arr)}
+      .title{font-size:28px;font-weight:bold}
+      .label{font-size:22px;font-weight:bold}
+      .sub{font-size:18px}
+      .note{font-size:16px;fill:#667085}
+    </style>
+  </defs>
+  <rect width="1100" height="1120" fill="#FFFFFF"/>
+  <text x="55" y="58" class="txt title">HBM RS(19,17) single-symbol decoder — functional flow</text>
+  <text x="55" y="88" class="txt note">Original schematic summary based on Kwon et al. (2026), Figures 4–6; not a reproduction.</text>
+
+  <rect x="330" y="130" width="440" height="86" class="box" fill="#F2F4F7"/>
+  <text x="550" y="165" text-anchor="middle" class="txt label">Received codeword</text>
+  <text x="550" y="193" text-anchor="middle" class="txt sub">r(x)</text>
+  <path d="M550 216 V270" class="arrow"/>
+
+  <rect x="260" y="270" width="580" height="112" class="box" fill="#EAF2F8"/>
+  <text x="550" y="310" text-anchor="middle" class="txt label">Parallel syndrome calculation</text>
+  <text x="550" y="343" text-anchor="middle" class="txt sub">Compute S₁ and S₂ from r(x)</text>
+  <path d="M550 382 V438" class="arrow"/>
+
+  <rect x="160" y="438" width="780" height="165" class="box" fill="#FFF2E3"/>
+  <text x="550" y="480" text-anchor="middle" class="txt label">Restricted error-location search</text>
+  <text x="550" y="516" text-anchor="middle" class="txt sub">For each candidate symbol position i = 0,…,16:</text>
+  <text x="550" y="549" text-anchor="middle" class="txt sub">compute S₁ × αⁱ and compare the result with S₂</text>
+  <text x="550" y="579" text-anchor="middle" class="txt note">Constant GF multiplications + zero-result comparison</text>
+  <path d="M550 603 V659" class="arrow"/>
+
+  <rect x="260" y="659" width="580" height="100" class="box" fill="#E8F4F1"/>
+  <text x="550" y="699" text-anchor="middle" class="txt label">One-hot error-location vector</text>
+  <text x="550" y="731" text-anchor="middle" class="txt sub">L = (l₀, l₁, …, l₁₆)</text>
+  <path d="M550 759 V815" class="arrow"/>
+
+  <rect x="190" y="815" width="720" height="128" class="box" fill="#FFF2E3"/>
+  <text x="550" y="855" text-anchor="middle" class="txt label">Error-magnitude generation</text>
+  <text x="550" y="890" text-anchor="middle" class="txt sub">Use the asserted location to select S₁ × α⁻ⁱ</text>
+  <text x="550" y="920" text-anchor="middle" class="txt note">Only the restricted set of message-position constants is needed</text>
+  <path d="M550 943 V990" class="arrow"/>
+
+  <rect x="300" y="990" width="500" height="84" class="box" fill="#EAF2F8"/>
+  <text x="550" y="1025" text-anchor="middle" class="txt label">Error-vector generation / correction</text>
+  <text x="550" y="1053" text-anchor="middle" class="txt sub">Construct e(x), then c(x) = r(x) + e(x)</text>
+
+  <text x="55" y="1100" class="txt note">Confirm no-error, invalid-syndrome, and implementation-specific handling against the actual RTL/specification.</text>
+</svg>

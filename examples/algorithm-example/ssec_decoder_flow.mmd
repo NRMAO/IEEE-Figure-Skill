@@ -1,0 +1,13 @@
+flowchart TD
+    A([Received word r(x)]) --> B["Parallel syndrome calculation<br/>S1, S2"]
+    B --> C["Restricted error-location search<br/>for i = 0 ... 16: compare S1 × α^i with S2"]
+    C --> D["One-hot error-location vector L"]
+    D --> E["Error-magnitude generation<br/>select the constant product S1 × α^-i"]
+    E --> F["Construct error vector e(x)"]
+    F --> G["Correct received word<br/>c(x) = r(x) + e(x)"]
+    G --> H([Corrected codeword c(x)])
+
+    classDef main fill:#EAF2F8,stroke:#202A35,color:#202A35,stroke-width:1.5px;
+    classDef accent fill:#FFF2E3,stroke:#D9822B,color:#202A35,stroke-width:1.5px;
+    class A,B,C,D,E,F,G,H main;
+    class C,E accent;
