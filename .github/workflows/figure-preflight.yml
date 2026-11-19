@@ -36,7 +36,7 @@ jobs:
             python tools/figure_preflight.py \
               --figure "$file" \
               --profile profiles/ieee-baseline.json \
-              --report "build/preflight/\${name}.json"
+              --report "build/preflight/${name}.json"
           done < <(find examples -type f -name '*.svg' -print0)
 
       - name: Upload preflight reports
