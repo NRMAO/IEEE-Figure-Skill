@@ -40,7 +40,7 @@ Run against an SVG or PDF with a manifest:
 
     python tools/figure_preflight.py --manifest manifests/figure-manifest.example.json --profile profiles/ieee-baseline.json --report build/figure-preflight.json
 
-The file path in the example manifest is resolved relative to the manifest's directory. You can override it:
+The file path in the example manifest is resolved relative to the manifest's directory. An explicit --figure path is resolved relative to your current working directory and overrides the manifest path:
 
     python tools/figure_preflight.py --figure path/to/figure.pdf --manifest path/to/figure-manifest.json --report build/figure-preflight.json
 

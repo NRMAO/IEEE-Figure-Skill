@@ -603,12 +603,16 @@ def main(argv: list[str] | None = None) -> int:
             print(f"ERROR: cannot load manifest: {exc}", file=sys.stderr)
             return 2
 
-    figure_arg = args.figure or manifest.get("file")
-    if not figure_arg:
-        parser.error("Provide --figure or a manifest containing 'file'.")
-    figure_path = Path(figure_arg)
-    if not figure_path.is_absolute():
-        figure_path = (manifest_path.parent / figure_path).resolve() if manifest_path else figure_path.resolve()
+    if args.figure:
+        # Explicit CLI paths are relative to the caller's current working directory.
+        figure_path = Path(args.figure).resolve()
+    else:
+        figure_arg = manifest.get("file")
+        if not figure_arg:
+            parser.error("Provide --figure or a manifest containing 'file'.")
+        figure_path = Path(figure_arg)
+        if not figure_path.is_absolute():
+            figure_path = (manifest_path.parent / figure_path).resolve() if manifest_path else figure_path.resolve()
 
     profile_path = Path(args.profile).resolve()
     try:

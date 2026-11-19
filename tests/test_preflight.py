@@ -136,3 +136,29 @@ def test_text_contrast_flags_low_contrast():
         report,
     )
     assert any(f.code == "TEXT_CONTRAST_LOW" for f in report.findings)
+
+
+def test_cli_figure_override_is_relative_to_working_directory(tmp_path: Path, monkeypatch):
+    import json
+    from tools.figure_preflight import main
+
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "manifests").mkdir()
+    figure = tmp_path / "figure.svg"
+    figure.write_text(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="300px" height="100px" viewBox="0 0 300 100">'
+        '<text x="10" y="40" font-size="16">Figure</text></svg>',
+        encoding="utf-8",
+    )
+    manifest = tmp_path / "manifests" / "manifest.json"
+    manifest.write_text(json.dumps({"caption": "Fig. 1. Example."}), encoding="utf-8")
+    profile = tmp_path / "profile.json"
+    profile.write_text(json.dumps(PROFILE), encoding="utf-8")
+
+    code = main([
+        "--figure", "figure.svg",
+        "--manifest", "manifests/manifest.json",
+        "--profile", "profile.json",
+        "--skip-browser",
+    ])
+    assert code == 0
