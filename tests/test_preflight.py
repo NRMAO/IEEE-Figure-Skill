@@ -165,7 +165,7 @@ def test_cli_figure_override_is_relative_to_working_directory(tmp_path: Path, mo
 
 
 def test_pdf_dimensions_and_font_preflight(tmp_path: Path):
-    import fitz
+    import pymupdf as fitz
 
     path = tmp_path / "figure.pdf"
     doc = fitz.open()

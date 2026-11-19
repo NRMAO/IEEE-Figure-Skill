@@ -24,7 +24,7 @@ except ImportError:  # pragma: no cover - dependency error is reported by CLI
     ImageColor = None  # type: ignore[assignment]
 
 try:
-    import fitz  # PyMuPDF
+    import pymupdf as fitz  # PyMuPDF
 except ImportError:  # pragma: no cover
     fitz = None  # type: ignore[assignment]
 
