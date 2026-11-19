@@ -19,10 +19,15 @@ Date: 2026-11-19
 
 ## Remote repository checks
 
-- Confirmed `NRMAO/IEEE-Figure-Skill` exists, is public, and uses `main` as its default branch.
+- Confirmed `NRMAO/IEEE-Figure-Skill` is public and uses `main` as its default branch.
 - Confirmed the connected account has push/admin permissions.
-- Initialized the empty repository with a first commit and prepared the complete source tree for
-  upload. Final commit/ref and remote file verification are recorded after the push completes.
+- Uploaded 26 source/documentation files in the initial source-tree commit; a follow-up commit
+  finalized this validation record.
+- Verified the remote commit and fetched the root README, `SKILL.md`, paper-style analysis, and
+  original RS encoder SVG from `main`.
+- The repository contains editable documentation, SVG/Mermaid/Python sources, and example CSV data.
+  Generated PDF/PNG preview binaries are not part of the Git commit; the plotting script regenerates
+  them locally. The original source-paper PDFs are intentionally excluded.
 
 ## Not yet verified
 
