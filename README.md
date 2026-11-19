@@ -14,9 +14,10 @@ with a focus on RS/ECC, HBM/DRAM, chiplet interconnects, and FPGA/ASIC hardware 
 
 ## Install / use
 
-1. Copy the `ieee-figure-skill/` directory into the skills directory supported by your agent.
-2. Ensure the agent can read `SKILL.md` and the referenced files under `references/`.
-3. Ask the agent to create or refine a figure, for example:
+1. Clone this repository, or download the ZIP and extract it.
+2. Copy the repository root folder into the skills directory supported by your agent. If the platform requires a lowercase skill-folder name, rename it to `ieee-figure-skill`.
+3. Ensure the agent can read `SKILL.md` and the referenced files under `references/`.
+4. Ask the agent to create or refine a figure, for example:
    - "Use the IEEE Figure Skill to draw a block-level RS(19,17) SSEC decoder from this architecture description."
    - "Analyze the figures in this PDF and summarize the visual design rules."
    - "Use this CSV to generate area, delay, and power comparison plots."
