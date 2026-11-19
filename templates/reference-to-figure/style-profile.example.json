@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "profile_name": "Clean, restrained journal-style reference",
+  "figure_family": "quantitative_plot",
+  "source_references": [
+    {
+      "file": "my-reference-figure.png",
+      "description": "User-supplied visual reference",
+      "inspection": "visually_inspected"
+    }
+  ],
+  "canvas": {
+    "width_in": 3.5,
+    "height_in": 2.5,
+    "aspect_ratio": "7:5",
+    "background": "#FFFFFF"
+  },
+  "typography": {
+    "font_family": "sans-serif",
+    "fallback_fonts": ["Arial", "Helvetica", "DejaVu Sans"],
+    "base_size_pt": 9,
+    "title_size_pt": 10,
+    "axis_label_size_pt": 9,
+    "tick_label_size_pt": 8,
+    "legend_size_pt": 8,
+    "title_weight": "normal"
+  },
+  "palette": {
+    "primary": "#2468A2",
+    "secondary": "#2A9D8F",
+    "accent": "#E9A23B",
+    "neutral": "#7A8491",
+    "text": "#202A35",
+    "background": "#FFFFFF",
+    "grid": "#D9DEE5",
+    "categories": [
+      {"name": "Control", "color": "#2468A2", "confidence": "medium", "evidence": "visually_estimated"},
+      {"name": "Treatment", "color": "#E9A23B", "confidence": "medium", "evidence": "visually_estimated"}
+    ]
+  },
+  "geometry": {
+    "line_width_pt": 1.5,
+    "axis_line_width_pt": 0.8,
+    "marker_size_pt": 4,
+    "grid_line_width_pt": 0.45,
+    "marker_edge_width_pt": 0.6
+  },
+  "layout": {
+    "legend_position": "best",
+    "legend_frame": false,
+    "grid_axis": "y",
+    "hide_top_spine": true,
+    "hide_right_spine": true,
+    "whitespace": "moderate",
+    "panel_label_position": "top_left"
+  },
+  "line_styles": ["-", "--", "-.", ":"],
+  "export": {
+    "formats": ["pdf", "svg", "png"],
+    "raster_dpi": 450,
+    "transparent_background": false
+  },
+  "extraction": {
+    "evidence_level": "visually_inspected",
+    "confidence": "medium",
+    "notes": [
+      "Color values are approximate visual estimates from the supplied raster reference.",
+      "Font family is inferred from appearance and has not been confirmed from embedded font metadata."
+    ]
+  },
+  "reuse_constraints": {
+    "reuse_visual_principles_only": true,
+    "do_not_copy_source_content": true,
+    "preserve_target_science": true
+  }
+}

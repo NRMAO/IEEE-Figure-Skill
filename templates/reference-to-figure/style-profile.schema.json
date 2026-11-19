@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/NRMAO/IEEE-Figure-Skill/blob/main/templates/reference-to-figure/style-profile.schema.json",
+  "title": "IEEE-Figure-Skill Reference Style Profile",
+  "description": "Portable, evidence-labelled visual design tokens extracted from user-provided figure references.",
+  "type": "object",
+  "required": ["schema_version", "profile_name", "figure_family", "canvas", "typography", "palette", "geometry", "layout", "export", "extraction"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "profile_name": {"type": "string", "minLength": 1},
+    "figure_family": {"type": "string"},
+    "source_references": {"type": "array", "items": {"type": "object", "properties": {"file": {"type": "string"}, "description": {"type": "string"}, "inspection": {"enum": ["visually_inspected", "textually_inspected", "metadata_only", "estimated"]}}, "additionalProperties": true}},
+    "canvas": {
+      "type": "object",
+      "required": ["width_in", "height_in", "background"],
+      "properties": {
+        "width_in": {"type": "number", "exclusiveMinimum": 0},
+        "height_in": {"type": "number", "exclusiveMinimum": 0},
+        "aspect_ratio": {"type": "string"},
+        "background": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"}
+      },
+      "additionalProperties": true
+    },
+    "typography": {
+      "type": "object",
+      "required": ["base_size_pt", "axis_label_size_pt", "tick_label_size_pt", "legend_size_pt"],
+      "properties": {
+        "font_family": {"type": "string"},
+        "fallback_fonts": {"type": "array", "items": {"type": "string"}},
+        "base_size_pt": {"type": "number", "exclusiveMinimum": 0},
+        "title_size_pt": {"type": "number", "exclusiveMinimum": 0},
+        "axis_label_size_pt": {"type": "number", "exclusiveMinimum": 0},
+        "tick_label_size_pt": {"type": "number", "exclusiveMinimum": 0},
+        "legend_size_pt": {"type": "number", "exclusiveMinimum": 0},
+        "title_weight": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "palette": {
+      "type": "object",
+      "required": ["primary", "secondary", "accent", "neutral", "text", "background"],
+      "properties": {
+        "primary": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "secondary": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "accent": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "neutral": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "text": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "background": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "grid": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "categories": {"type": "array", "items": {"type": "object", "required": ["name", "color"], "properties": {"name": {"type": "string"}, "color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"}, "confidence": {"enum": ["high", "medium", "low"]}, "evidence": {"type": "string"}}, "additionalProperties": true}}
+      },
+      "additionalProperties": true
+    },
+    "geometry": {"type": "object", "required": ["line_width_pt", "axis_line_width_pt", "marker_size_pt", "grid_line_width_pt"], "properties": {"line_width_pt": {"type": "number", "exclusiveMinimum": 0}, "axis_line_width_pt": {"type": "number", "exclusiveMinimum": 0}, "marker_size_pt": {"type": "number", "exclusiveMinimum": 0}, "grid_line_width_pt": {"type": "number", "exclusiveMinimum": 0}}, "additionalProperties": true},
+    "layout": {"type": "object"},
+    "line_styles": {"type": "array", "items": {"type": "string"}},
+    "export": {"type": "object", "required": ["formats", "raster_dpi"], "properties": {"formats": {"type": "array", "items": {"enum": ["pdf", "svg", "png", "tif", "tiff"]}, "minItems": 1}, "raster_dpi": {"type": "integer", "minimum": 1}, "transparent_background": {"type": "boolean"}}, "additionalProperties": true},
+    "extraction": {"type": "object", "required": ["evidence_level"], "properties": {"evidence_level": {"enum": ["visually_inspected", "mixed", "textually_inspected", "estimated"]}, "confidence": {"enum": ["high", "medium", "low"]}, "notes": {"type": "array", "items": {"type": "string"}}}, "additionalProperties": true},
+    "reuse_constraints": {"type": "object"}
+  },
+  "additionalProperties": true
+}
