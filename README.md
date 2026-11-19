@@ -60,6 +60,25 @@ Example requests:
 - “Generate a polar radiation-pattern plot from the supplied measurement data.”
 - “Inspect this source code and draw only the data flow that is supported by the implementation.”
 
+## Automated quality assurance
+
+The repository includes a runnable preflight tool for measurable figure-quality issues:
+
+- SVG text outside the canvas, measured in Chromium with Playwright;
+- PDF text outside the page, small text, embedded raster resolution, and font embedding;
+- PNG/TIFF effective print resolution;
+- manifest-driven caption, panel-label, abbreviation, symbol, color-meaning, and source-credit checks;
+- semantic palette checks for perceptual distance, grayscale separation, and color-vision-deficiency simulations;
+- configurable file-format and physical-size rules through journal profiles.
+
+Install and run:
+
+    python -m pip install -e ".[browser,test]"
+    python -m playwright install chromium
+    python tools/figure_preflight.py --manifest manifests/figure-manifest.example.json --report build/preflight.json
+
+The default profile is a general IEEE screening baseline, not a universal acceptance guarantee. The target journal or conference instructions always take precedence. See docs/automated-quality-assurance.md for the manifest, profiles, limitations, and GitHub Actions workflow.
+
 ## Repository structure
 
 - SKILL.md — main domain-neutral instructions.

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ieee-figure-preflight"
+version = "0.1.0"
+description = "Automated preflight checks for IEEE-style scientific figures"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "Pillow>=10.0",
+  "PyMuPDF>=1.24",
+  "colorspacious>=1.1.2",
+  "numpy>=1.24"
+]
+
+[project.optional-dependencies]
+browser = ["playwright>=1.45"]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+figure-preflight = "tools.figure_preflight:main"
+
+[tool.setuptools]
+packages = ["tools"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

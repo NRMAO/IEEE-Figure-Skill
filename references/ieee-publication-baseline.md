@@ -20,7 +20,13 @@ It also advises authors to create graphics at the required quality from the begi
 
 Source: https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/resolution-and-size/
 
-## 2. General communication principles
+## 2. File formats and fonts
+
+The IEEE Author Center lists PS, EPS, PDF, PNG, and TIFF as accepted graphics submission formats. Microsoft Office formats are accepted only when the graphic was originally drawn in the relevant Office application. JPEG is listed for high-resolution author photos, not as a general figure format. The guidance also asks authors supplying EPS, PS, or PDF to embed fonts or convert text to outlines, and recommends consistent typography across figures and tables.
+
+Source: https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/file-formatting/
+
+## 3. General communication principles
 
 Proceedings of the IEEE advises that figures and tables should:
 
@@ -38,7 +44,7 @@ Its guidance gives approximately 9–10 pt as a recommended font-size reference.
 
 Source: https://proceedingsoftheieee.ieee.org/resources/guidelines-for-figures-and-tables/
 
-## 3. What must be checked for each submission
+## 4. What must be checked for each submission
 
 Before exporting, check the target venue's current instructions for:
 
@@ -55,7 +61,7 @@ Before exporting, check the target venue's current instructions for:
 
 Do not assume that every IEEE publication has identical rules. When the target venue's instructions conflict with this baseline, follow the target venue.
 
-## 4. Practical export defaults
+## 5. Practical export defaults
 
 When the venue has not yet been specified:
 

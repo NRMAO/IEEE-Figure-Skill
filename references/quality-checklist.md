@@ -48,3 +48,16 @@ Use this checklist before delivering a figure.
 - [ ] The script regenerates the output without manual hidden steps.
 - [ ] Dependencies and assumptions are documented.
 - [ ] The output file was actually rendered or tested before claiming validation.
+
+
+## Automated preflight (when supported)
+
+- [ ] Run the figure-preflight CLI on the final exported figure.
+- [ ] Review every error, warning, and skipped-check notice; do not treat a missing check as a pass.
+- [ ] For SVG, inspect browser-measured text bounds and any small-text warnings at the intended physical width.
+- [ ] For PDF, inspect page bounds, text sizes, embedded raster DPI, and font embedding/outlining.
+- [ ] For PNG/TIFF, verify effective DPI using the actual final print dimensions.
+- [ ] Declare semantic palette colors and text foreground/background pairs in the manifest; review grayscale and color-vision simulations.
+- [ ] Confirm panel labels, abbreviations, symbols, color meanings, units/legend terms, and source credits against the actual caption and figure.
+- [ ] Use a profile customized for the target journal/conference when its requirements differ from the general baseline.
+- [ ] Complete a human/AI scientific review; automated preflight cannot verify scientific truth, causal interpretation, data provenance, permissions, or guaranteed venue acceptance.

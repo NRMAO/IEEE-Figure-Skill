@@ -151,6 +151,26 @@ Deliver, where appropriate:
 
 Use references/quality-checklist.md before delivery. Check the actual target venue's instructions rather than assuming all IEEE publications use identical requirements.
 
+### 8. Run automated preflight when a file can be inspected
+
+When the repository's preflight utility is available, run it on the exported figure rather than relying only on a visual impression:
+
+    python tools/figure_preflight.py --manifest path/to/figure-manifest.json --profile profiles/ieee-baseline.json --report build/figure-preflight.json
+
+Use a manifest to provide the final caption, figure/panel numbering, abbreviation and symbol definitions, color meanings, legend/axis labels, target physical dimensions, artwork type, semantic palette, text foreground/background samples, and source-credit information.
+
+Interpret findings carefully:
+
+- **Errors** identify objective failures such as missing files, unsupported final formats, invalid SVG, or missing required caption/credit metadata.
+- **Warnings** identify likely issues such as text outside the SVG/PDF page, low effective raster DPI, small text, unembedded PDF fonts, similar category colors, low contrast, or incomplete declared caption items.
+- **Info** identifies checks that were skipped or require human interpretation.
+
+For SVG, use the Chromium-based text bounding-box check. For PDF, inspect text bounds, font resources, and embedded raster resolution. For PNG/TIFF, inspect pixel dimensions and DPI; raster text clipping is not automatically inferred. Color and caption checks are driven by explicit manifest declarations.
+
+A PASS is not proof of scientific validity or guaranteed IEEE acceptance. The AI must still compare the rendered figure and caption against the source paper, data, methods, and actual target venue instructions. If the browser or a parser is unavailable, state that the corresponding check was not completed; never claim it passed.
+
+See docs/automated-quality-assurance.md for installation, profile customization, the manifest schema, CI behavior, and known limitations.
+
 ## Domain adapters
 
 The Skill is general-purpose, but it must adapt to the science:
@@ -199,6 +219,8 @@ See references/ieee-paper-corpus.md and references/ieee-publication-baseline.md.
 - references/color-and-typography.md — accessible color and typography principles.
 - references/visualization-ethics.md — data, image, and scientific-integrity rules.
 - references/quality-checklist.md — final quality checks.
+- docs/automated-quality-assurance.md — automated preflight workflow and limitations.
+- tools/figure_preflight.py — automated file, caption, color, and venue-profile checks.
 - references/paper-style-analysis.md — original hardware-focused seed corpus retained as one optional specialty case study.
 
 Templates and examples are under templates/ and examples/.

@@ -18,3 +18,8 @@ All examples in this folder are original, editable illustrations created for the
 - performance-example/ — synthetic demonstration CSV and plot script.
 
 The hardware examples remain available for users in that specialty, but they are not the default style for the general Skill.
+
+
+## Automated preflight
+
+Use manifests/figure-manifest.example.json as a starting point for declaring the caption, panel labels, semantic palette, target print size, and text contrast samples. Run the figure-preflight CLI from the repository root after updating the manifest to match the final figure.

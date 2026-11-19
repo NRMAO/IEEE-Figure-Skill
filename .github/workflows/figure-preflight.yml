@@ -1,0 +1,48 @@
+name: Figure preflight
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test-and-preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install project and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[browser,test]"
+          python -m playwright install --with-deps chromium
+
+      - name: Run automated tests
+        run: python -m pytest
+
+      - name: Preflight repository SVG examples
+        shell: bash
+        run: |
+          mkdir -p build/preflight
+          while IFS= read -r -d '' file; do
+            name=$(echo "$file" | tr '/' '_')
+            python tools/figure_preflight.py \
+              --figure "$file" \
+              --profile profiles/ieee-baseline.json \
+              --report "build/preflight/\${name}.json"
+          done < <(find examples -type f -name '*.svg' -print0)
+
+      - name: Upload preflight reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: figure-preflight-reports
+          path: build/preflight/*.json
+          if-no-files-found: warn

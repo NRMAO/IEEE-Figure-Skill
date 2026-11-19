@@ -1,0 +1,33 @@
+{
+  "file": "../examples/biomedical/wearable-monitoring-pipeline.svg",
+  "figure_number": "1",
+  "caption": "Fig. 1. Conceptual wearable monitoring architecture showing signal acquisition by wearable sensors, embedded signal processing, wireless data transmission, cloud storage, and caregiver review.",
+  "panels": [],
+  "abbreviations": [],
+  "symbols": [],
+  "color_encodings": [],
+  "legend_labels": [],
+  "required_figure_terms": [],
+  "artwork_type": "color_grayscale",
+  "target_width_in": 7.16,
+  "target_height_in": 2.86,
+  "palette": [
+    {
+      "name": "feedback path",
+      "hex": "#238477"
+    },
+    {
+      "name": "main signal path",
+      "hex": "#263442"
+    }
+  ],
+  "text_samples": [
+    {
+      "name": "main label",
+      "foreground": "#263442",
+      "background": "#FFFFFF"
+    }
+  ],
+  "source_reused": false,
+  "source_credit": ""
+}

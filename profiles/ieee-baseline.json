@@ -1,0 +1,47 @@
+{
+  "profile_name": "IEEE general artwork baseline (not venue-specific)",
+  "profile_version": "1.0",
+  "source_urls": [
+    "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/resolution-and-size/",
+    "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/file-formatting/",
+    "https://proceedingsoftheieee.ieee.org/resources/guidelines-for-figures-and-tables/"
+  ],
+  "verified_date": "2026-11-19",
+  "accepted_formats": [
+    ".ps",
+    ".eps",
+    ".pdf",
+    ".png",
+    ".tif",
+    ".tiff"
+  ],
+  "editable_source_formats": [
+    ".svg"
+  ],
+  "maximum_width_in": 7.16,
+  "maximum_height_in": 8.8,
+  "common_column_widths_in": [
+    3.5,
+    7.16
+  ],
+  "minimum_raster_dpi": {
+    "color_grayscale": 300,
+    "black_white_line_art": 600
+  },
+  "recommended_min_font_pt": 8,
+  "dimension_tolerance_in": 0.15,
+  "svg_checks": {
+    "boundary_tolerance_user_units": 0.75
+  },
+  "color_checks": {
+    "minimum_delta_e76": 12,
+    "minimum_grayscale_luminance_difference": 0.1,
+    "minimum_text_contrast_ratio": 4.5,
+    "cvd_types": [
+      "protanomaly",
+      "deuteranomaly",
+      "tritanomaly"
+    ]
+  },
+  "important_caveat": "This is a configurable screening profile derived from general IEEE Author Center guidance, not an official universal IEEE acceptance test. The target journal or conference instructions take precedence. The color contrast ratio and perceptual color-distance thresholds are screening heuristics, not IEEE-mandated thresholds."
+}

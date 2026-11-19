@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0 — 2026-11-19
+
+- Added a runnable figure-preflight CLI for SVG, PDF, PNG, and TIFF files.
+- Added Chromium-based SVG text-boundary checks and PDF text/page-boundary checks.
+- Added raster DPI checks, PDF embedded-image effective-DPI checks, and PDF font-embedding inspection.
+- Added manifest-driven caption, panel-label, abbreviation, symbol, color-meaning, legend-label, and source-credit checks.
+- Added perceptual palette, grayscale-separation, color-vision-deficiency, and declared text-contrast screening.
+- Added a configurable IEEE baseline profile and venue-specific profile workflow.
+- Added unit/browser tests and GitHub Actions continuous integration with JSON preflight artifacts.
+- Documented that automated preflight is a screening tool, not scientific validation or a guarantee of IEEE acceptance.
+
 ## 0.2.0 — 2026-11-19
 
 - Repositioned the project as a domain-neutral IEEE academic figure Skill.
