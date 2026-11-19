@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="700" viewBox="0 0 1400 700">
+  <title>Multi-robot collaborative perception architecture — original conceptual example</title>
+  <desc>Three repeated robot nodes with sensors and local front ends exchange selected information over a peer network and contribute to a shared optimization process. Not a reproduction of a paper figure.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#263442"/></marker>
+    <style>
+      .t{font-family:Arial,Helvetica,sans-serif;fill:#263442}
+      .h{font-size:26px;font-weight:700}
+      .m{font-size:20px;font-weight:700}
+      .s{font-size:16px}
+      .n{font-size:14px;fill:#667085}
+      .box{stroke:#263442;stroke-width:2;rx:10}
+      .wire{stroke:#263442;stroke-width:2.2;fill:none;marker-end:url(#a)}
+      .net{stroke:#238477;stroke-width:2.3;fill:none;stroke-dasharray:8 7}
+    </style>
+  </defs>
+  <rect width="1400" height="700" fill="#FFFFFF"/>
+  <text x="55" y="58" class="t h">Multi-robot collaborative perception — conceptual architecture</text>
+  <text x="55" y="88" class="t n">Repeated local nodes, peer communication, and shared estimation are separated for readability.</text>
+
+  <g>
+    <rect x="55" y="155" width="330" height="115" class="box" fill="#EAF2F8"/>
+    <text x="220" y="190" text-anchor="middle" class="t m">Robot A</text>
+    <text x="220" y="225" text-anchor="middle" class="t s">Sensors → local odometry → descriptors</text>
+    <rect x="55" y="315" width="330" height="115" class="box" fill="#EAF2F8"/>
+    <text x="220" y="350" text-anchor="middle" class="t m">Robot B</text>
+    <text x="220" y="385" text-anchor="middle" class="t s">Sensors → local odometry → descriptors</text>
+    <rect x="55" y="475" width="330" height="115" class="box" fill="#EAF2F8"/>
+    <text x="220" y="510" text-anchor="middle" class="t m">Robot C</text>
+    <text x="220" y="545" text-anchor="middle" class="t s">Sensors → local odometry → descriptors</text>
+  </g>
+
+  <path d="M385 212 C470 212 470 372 540 372" class="net"/>
+  <path d="M385 372 H540" class="net"/>
+  <path d="M385 532 C470 532 470 372 540 372" class="net"/>
+
+  <rect x="540" y="270" width="280" height="205" class="box" fill="#E8F4F1"/>
+  <text x="680" y="310" text-anchor="middle" class="t m">Peer communication</text>
+  <text x="680" y="350" text-anchor="middle" class="t s">Neighbor discovery</text>
+  <text x="680" y="380" text-anchor="middle" class="t s">Candidate matching</text>
+  <text x="680" y="410" text-anchor="middle" class="t s">Selective data exchange</text>
+  <text x="680" y="445" text-anchor="middle" class="t n">No central coordinator assumed</text>
+
+  <path d="M820 372 H900" class="wire"/>
+  <rect x="900" y="270" width="240" height="205" class="box" fill="#FFF2E3"/>
+  <text x="1020" y="310" text-anchor="middle" class="t m">Shared estimation</text>
+  <text x="1020" y="350" text-anchor="middle" class="t s">Pose-graph update</text>
+  <text x="1020" y="380" text-anchor="middle" class="t s">Optimization</text>
+  <text x="1020" y="410" text-anchor="middle" class="t s">Consistency checks</text>
+
+  <path d="M1140 372 H1200" class="wire"/>
+  <rect x="1200" y="315" width="150" height="115" class="box" fill="#F2F4F7"/>
+  <text x="1275" y="355" text-anchor="middle" class="t m">Outputs</text>
+  <text x="1275" y="385" text-anchor="middle" class="t s">Map / poses</text>
+
+  <text x="55" y="645" class="t n">Adapt to the actual system: sensor types, communication policy, graph structure, and whether optimization is centralized or distributed.</text>
+</svg>

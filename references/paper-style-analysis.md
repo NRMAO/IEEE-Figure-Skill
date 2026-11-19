@@ -1,3 +1,5 @@
+> **Scope note (v0.2.0):** This file records the original hardware- and memory-focused seed literature from v0.1.0. It is retained as an optional specialty case study, not as the default visual style or scope of IEEE-Figure-Skill. For the expanded cross-domain IEEE corpus, use references/ieee-paper-corpus.md. Some papers in this original seed set are not IEEE publications; their publisher/venue status is identified in the entries below.
+
 # Paper Style Analysis
 
 ## Scope and method

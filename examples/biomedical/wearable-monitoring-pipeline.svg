@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560">
+  <title>Wearable monitoring system pipeline — original conceptual example</title>
+  <desc>Generic flow from a monitored person and wearable sensors through signal conditioning, embedded processing, wireless transmission, cloud analysis, and a care team. Not a reproduction of a paper figure.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#263442"/></marker>
+    <style>
+      .t{font-family:Arial,Helvetica,sans-serif;fill:#263442}
+      .h{font-size:26px;font-weight:700}
+      .m{font-size:20px;font-weight:700}
+      .s{font-size:16px}
+      .n{font-size:14px;fill:#667085}
+      .b{stroke:#263442;stroke-width:2;rx:12}
+      .l{stroke:#263442;stroke-width:2.5;fill:none;marker-end:url(#a)}
+      .dash{stroke:#238477;stroke-width:2.5;fill:none;stroke-dasharray:8 7;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1400" height="560" fill="#FFFFFF"/>
+  <text x="55" y="58" class="t h">Wearable monitoring system — conceptual architecture</text>
+  <text x="55" y="88" class="t n">Original reusable example. Replace generic blocks with the actual device, protocol, and data path.</text>
+
+  <rect x="55" y="190" width="170" height="190" class="b" fill="#F2F4F7"/>
+  <circle cx="140" cy="245" r="28" fill="#D8E0E8" stroke="#263442" stroke-width="2"/>
+  <path d="M100 340 Q105 285 140 285 Q175 285 180 340 Z" fill="#EAF2F8" stroke="#263442" stroke-width="2"/>
+  <text x="140" y="365" text-anchor="middle" class="t s">Monitored person</text>
+
+  <path d="M225 285 H270" class="l"/>
+  <rect x="270" y="165" width="205" height="230" class="b" fill="#E8F4F1"/>
+  <text x="372" y="205" text-anchor="middle" class="t m">Wearable device</text>
+  <rect x="292" y="230" width="160" height="42" rx="6" fill="#FFFFFF" stroke="#238477"/>
+  <text x="372" y="257" text-anchor="middle" class="t s">Sensors</text>
+  <rect x="292" y="285" width="160" height="42" rx="6" fill="#FFFFFF" stroke="#238477"/>
+  <text x="372" y="312" text-anchor="middle" class="t s">Signal readout</text>
+  <rect x="292" y="340" width="160" height="34" rx="6" fill="#FFFFFF" stroke="#238477"/>
+  <text x="372" y="363" text-anchor="middle" class="t s">Embedded unit</text>
+
+  <path d="M475 285 H530" class="l"/>
+  <rect x="530" y="205" width="170" height="160" class="b" fill="#EAF2F8"/>
+  <text x="615" y="250" text-anchor="middle" class="t m">Wireless link</text>
+  <text x="615" y="285" text-anchor="middle" class="t s">Protocol / radio</text>
+  <text x="615" y="315" text-anchor="middle" class="t s">Data packets</text>
+
+  <path d="M700 285 H755" class="l"/>
+  <rect x="755" y="205" width="185" height="160" class="b" fill="#FFF2E3"/>
+  <text x="847" y="250" text-anchor="middle" class="t m">Cloud platform</text>
+  <text x="847" y="285" text-anchor="middle" class="t s">Storage</text>
+  <text x="847" y="315" text-anchor="middle" class="t s">Analysis</text>
+
+  <path d="M940 285 H995" class="l"/>
+  <rect x="995" y="205" width="170" height="160" class="b" fill="#F2F4F7"/>
+  <text x="1080" y="250" text-anchor="middle" class="t m">Care team</text>
+  <text x="1080" y="285" text-anchor="middle" class="t s">Dashboard</text>
+  <text x="1080" y="315" text-anchor="middle" class="t s">Alert / review</text>
+
+  <path d="M1080 365 V440 H372 V395" class="dash"/>
+  <text x="725" y="430" text-anchor="middle" class="t n">Optional feedback / configuration path — include only if supported by the actual system</text>
+  <text x="55" y="510" class="t n">Scientific checks: sensor identity, sampling rate, signal units, wireless protocol, data ownership, and clinical interpretation must be source-grounded.</text>
+</svg>

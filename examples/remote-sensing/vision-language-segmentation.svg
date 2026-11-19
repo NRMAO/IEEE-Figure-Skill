@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720">
+  <title>Vision-language segmentation pipeline — original conceptual example</title>
+  <desc>Remote-sensing image and text expression are encoded separately, fused, and passed to a segmentation head that produces a mask. Not a reproduction of a paper figure.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#263442"/></marker>
+    <style>
+      .t{font-family:Arial,Helvetica,sans-serif;fill:#263442}
+      .h{font-size:26px;font-weight:700}
+      .m{font-size:20px;font-weight:700}
+      .s{font-size:16px}
+      .n{font-size:14px;fill:#667085}
+      .b{stroke:#263442;stroke-width:2;rx:12}
+      .a{stroke:#263442;stroke-width:2.2;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1400" height="720" fill="#FFFFFF"/>
+  <text x="55" y="58" class="t h">Vision-language segmentation — conceptual pipeline</text>
+  <text x="55" y="88" class="t n">Replace generic blocks with the actual model stages and the true input/output representations.</text>
+
+  <rect x="55" y="180" width="250" height="190" class="b" fill="#F2F4F7"/>
+  <text x="180" y="220" text-anchor="middle" class="t m">Remote-sensing image</text>
+  <rect x="85" y="245" width="190" height="90" rx="5" fill="#DCE7E0" stroke="#667085"/>
+  <path d="M85 310 L130 270 L165 300 L205 255 L275 300 V335 H85 Z" fill="#9EB7A5"/>
+  <path d="M110 245 L145 275 L185 255 L230 295 L275 270" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+  <text x="180" y="355" text-anchor="middle" class="t n">Image tensor / patches</text>
+
+  <rect x="55" y="445" width="250" height="115" class="b" fill="#F2F4F7"/>
+  <text x="180" y="485" text-anchor="middle" class="t m">Text expression</text>
+  <text x="180" y="520" text-anchor="middle" class="t s">“Target object near …”</text>
+
+  <path d="M305 275 H365" class="a"/>
+  <path d="M305 500 H365" class="a"/>
+  <rect x="365" y="205" width="220" height="140" class="b" fill="#EAF2F8"/>
+  <text x="475" y="255" text-anchor="middle" class="t m">Visual encoder</text>
+  <text x="475" y="290" text-anchor="middle" class="t s">Visual features</text>
+
+  <rect x="365" y="435" width="220" height="130" class="b" fill="#E8F4F1"/>
+  <text x="475" y="485" text-anchor="middle" class="t m">Text encoder</text>
+  <text x="475" y="520" text-anchor="middle" class="t s">Language features</text>
+
+  <path d="M585 275 C640 275 640 340 690 340" class="a"/>
+  <path d="M585 500 C640 500 640 390 690 390" class="a"/>
+  <rect x="690" y="275" width="240" height="180" class="b" fill="#FFF2E3"/>
+  <text x="810" y="325" text-anchor="middle" class="t m">Cross-modal fusion</text>
+  <text x="810" y="360" text-anchor="middle" class="t s">Feature alignment</text>
+  <text x="810" y="390" text-anchor="middle" class="t s">Context interaction</text>
+  <text x="810" y="425" text-anchor="middle" class="t n">Actual modules depend on model</text>
+
+  <path d="M930 365 H1000" class="a"/>
+  <rect x="1000" y="275" width="170" height="180" class="b" fill="#EAF2F8"/>
+  <text x="1085" y="325" text-anchor="middle" class="t m">Segmentation</text>
+  <text x="1085" y="360" text-anchor="middle" class="t s">Decoder / head</text>
+  <text x="1085" y="395" text-anchor="middle" class="t s">Mask prediction</text>
+
+  <path d="M1170 365 H1220" class="a"/>
+  <rect x="1220" y="275" width="135" height="180" class="b" fill="#E8F4F1"/>
+  <text x="1287" y="325" text-anchor="middle" class="t m">Output</text>
+  <rect x="1242" y="350" width="90" height="65" rx="4" fill="#D8E4EA" stroke="#667085"/>
+  <path d="M1242 410 L1260 380 L1280 392 L1300 360 L1332 390 V415 H1242 Z" fill="#238477" opacity="0.85"/>
+  <text x="1287" y="440" text-anchor="middle" class="t n">Mask</text>
+
+  <text x="55" y="645" class="t n">For publication, state image resolution, dataset split, prompt construction, mask encoding, and the meaning of all colors.</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <title>Generic microgrid operating-state machine</title>
+  <desc>Illustrative state machine with grid-connected, prepare-to-island, islanded, and prepare-to-reconnect states. Transition labels are generic placeholders.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#263442"/></marker>
+    <style>
+      .t{font-family:Arial,Helvetica,sans-serif;fill:#263442}
+      .h{font-size:26px;font-weight:700}
+      .m{font-size:20px;font-weight:700}
+      .s{font-size:16px}
+      .n{font-size:14px;fill:#667085}
+      .state{stroke:#263442;stroke-width:2.2;rx:16}
+      .arrow{stroke:#263442;stroke-width:2.2;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="#FFFFFF"/>
+  <text x="55" y="58" class="t h">Microgrid operating-state machine — generic template</text>
+  <text x="55" y="88" class="t n">Transition conditions are placeholders; replace them with the actual control specification.</text>
+
+  <rect x="420" y="150" width="360" height="100" class="state" fill="#EAF2F8"/>
+  <text x="600" y="190" text-anchor="middle" class="t m">Grid-connected</text>
+  <text x="600" y="220" text-anchor="middle" class="t s">Normal grid-parallel operation</text>
+
+  <rect x="770" y="340" width="350" height="100" class="state" fill="#FFF2E3"/>
+  <text x="945" y="380" text-anchor="middle" class="t m">Prepare to island</text>
+  <text x="945" y="410" text-anchor="middle" class="t s">Check transition conditions</text>
+
+  <rect x="420" y="530" width="360" height="100" class="state" fill="#E8F4F1"/>
+  <text x="600" y="570" text-anchor="middle" class="t m">Islanded</text>
+  <text x="600" y="600" text-anchor="middle" class="t s">Local voltage/frequency control</text>
+
+  <rect x="70" y="340" width="350" height="100" class="state" fill="#F2F4F7"/>
+  <text x="245" y="380" text-anchor="middle" class="t m">Prepare to reconnect</text>
+  <text x="245" y="410" text-anchor="middle" class="t s">Synchronize before closing</text>
+
+  <path d="M780 205 C900 230 980 270 980 340" class="arrow"/>
+  <text x="925" y="255" class="t s">Islanding request / grid event</text>
+
+  <path d="M945 440 C900 500 780 560 780 575" class="arrow"/>
+  <text x="870" y="520" class="t s">Relay open / island confirmed</text>
+
+  <path d="M420 575 C280 560 245 500 245 440" class="arrow"/>
+  <text x="245" y="520" class="t s">Reconnect request</text>
+
+  <path d="M245 340 C245 230 330 205 420 205" class="arrow"/>
+  <text x="120" y="260" class="t s">Synchronization complete</text>
+
+  <text x="55" y="680" class="t n">Define all event conditions, guards, failure paths, and reset/recovery behavior from the actual controller specification.</text>
+</svg>

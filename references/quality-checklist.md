@@ -1,39 +1,50 @@
 # Quality Checklist
 
-Use this checklist before delivering any figure.
+Use this checklist before delivering a figure.
 
-## Technical correctness
-- [ ] Figure purpose matches the user's request.
-- [ ] Every module and signal is supported by RTL, equations, data, or explicit assumptions.
-- [ ] Arrow direction and junction semantics are correct.
-- [ ] Bus widths, symbol indices, code parameters, and field notation are correct.
-- [ ] Pipeline/register boundaries and clock/reset polarity are preserved.
-- [ ] No algorithmic stage has been inserted or removed without evidence.
-- [ ] All numerical data, units, and significant digits match the source.
+## Scientific correctness
 
-## Visual quality
-- [ ] Main reading order is obvious.
-- [ ] Modules and panels are aligned.
-- [ ] Spacing is consistent.
-- [ ] Connectors do not cross unnecessarily.
-- [ ] Text is horizontal and legible.
-- [ ] Colors encode meaning and have adequate contrast.
-- [ ] The figure remains understandable in grayscale.
-- [ ] No unnecessary gradients, shadows, textures, or decorative icons.
-- [ ] Legend and panel labels are consistent.
+- [ ] The figure's primary message is clear.
+- [ ] Every component, relationship, label, and arrow is supported by source material.
+- [ ] Equations, units, symbols, dimensions, and coordinate systems are correct.
+- [ ] Data values, sample sizes, statistics, and uncertainty match the source.
+- [ ] Simulated, measured, predicted, and conceptual elements are distinguished.
+- [ ] No unsupported biological, physical, or causal claim has been added.
+
+## Visual communication
+
+- [ ] The figure type matches the scientific question.
+- [ ] Reading order is obvious.
+- [ ] Related panels are aligned and consistently encoded.
+- [ ] Labels and annotations are concise and unambiguous.
+- [ ] Legends and colorbars explain all non-obvious encodings.
+- [ ] Scale bars, map scales, units, and coordinate frames are present where needed.
+- [ ] Colors are distinguishable and not the sole carrier of meaning.
+- [ ] The figure remains interpretable in grayscale when appropriate.
+- [ ] No unnecessary gradients, shadows, textures, or decorative elements.
+
+## Image and data integrity
+
+- [ ] Original image/data provenance is retained.
+- [ ] Cropping, registration, normalization, and display adjustments are documented where required.
+- [ ] No evidence has been fabricated, selectively removed, or altered.
+- [ ] Outliers, missing data, and exclusions are handled transparently.
+- [ ] Synthetic examples are explicitly labelled as illustrative.
 
 ## Publication readiness
-- [ ] Final width matches the target single-/double-column layout.
-- [ ] Text remains legible at actual print size.
-- [ ] No clipped labels, equations, arrows, or borders.
-- [ ] Caption and panel references agree.
-- [ ] Vector output opens correctly.
-- [ ] Raster preview is sufficiently high resolution.
-- [ ] Editable source is included where requested.
+
+- [ ] The target journal/conference artwork instructions have been checked.
+- [ ] Figure width and height match the intended layout.
+- [ ] Text, lines, markers, and legends remain readable at final print size.
+- [ ] No labels, equations, arrows, or borders are clipped.
+- [ ] Panel labels and caption references agree.
+- [ ] Vector output opens correctly where used.
+- [ ] Raster output meets the target venue's resolution and format requirements.
 
 ## Reproducibility
-- [ ] Plot source data is included.
-- [ ] Plot script executes without errors.
-- [ ] Dependencies and regeneration instructions are stated.
-- [ ] Synthetic/example data is explicitly labelled.
-- [ ] No source-paper PDF or copied figure has been bundled.
+
+- [ ] Editable source is included where requested.
+- [ ] Input data and plotting scripts are included for data-driven figures.
+- [ ] The script regenerates the output without manual hidden steps.
+- [ ] Dependencies and assumptions are documented.
+- [ ] The output file was actually rendered or tested before claiming validation.

@@ -1,90 +1,67 @@
 # Color and Typography
 
-## 1. Default palette
+## 1. No universal palette
 
-The palette below is a **new project palette** informed by the restrained blue/teal/orange accents
-seen in several supplied papers. It is not an exact extraction from any one paper.
+There is no single palette that should be imposed on all IEEE figures. Select colors based on the data, field conventions, accessibility, and consistency across the paper.
 
-| Token | HEX | Use |
-|---|---|---|
-| Ink | `#202A35` | Main text, outlines, axes |
-| Neutral | `#667085` | Secondary labels, baseline/reference |
-| Light gray | `#F2F4F7` | Neutral module fill |
-| Blue | `#2468A2` | Main data path / primary module |
-| Blue tint | `#EAF2F8` | Primary module background |
-| Teal | `#238477` | Auxiliary/shared processing |
-| Teal tint | `#E8F4F1` | Auxiliary module background |
-| Orange | `#D9822B` | Proposed block / emphasis |
-| Orange tint | `#FFF2E3` | Highlight background |
-| Red | `#B54747` | Error, invalid, exception |
-| Red tint | `#FCEEEE` | Error region background |
-| Green | `#4D8A63` | Parity/check or positive result, if semantically defined |
-| Green tint | `#EDF5EF` | Positive-result background |
-| White | `#FFFFFF` | Canvas |
+- Monochrome is often the clearest choice for dense schematics, equations, and logic diagrams.
+- Color can identify groups, stages, signal classes, image masks, or competing methods.
+- Use a restrained palette and reserve strong emphasis colors for meaningful distinctions.
+- Do not use color as the only way to encode an important category.
 
-### Plot palette
+## 2. Accessible categorical colors
 
-For categorical plots, use a colorblind-conscious set and preserve the mapping across panels:
+For general categorical plots, a colorblind-conscious palette can be a starting point:
 
-- Blue `#0072B2`
-- Vermilion `#D55E00`
-- Bluish green `#009E73`
-- Orange `#E69F00`
-- Sky blue `#56B4E9`
-- Reddish purple `#CC79A7`
-- Dark gray `#4D4D4D`
+- Blue: #0072B2
+- Vermilion: #D55E00
+- Bluish green: #009E73
+- Orange: #E69F00
+- Sky blue: #56B4E9
+- Reddish purple: #CC79A7
+- Dark gray: #4D4D4D
 
-Do not use all colors in one chart unless the number of categories requires them. For two-series
-comparisons, blue/orange is usually sufficient. For baseline vs proposed, use neutral gray vs
-blue or orange.
+This is an optional starting palette, not an IEEE requirement. Use fewer colors where possible. For many categories, combine color with line style, marker, hatch, direct labels, or panel separation.
 
-## 2. Contrast and grayscale
+Avoid relying on red/green distinctions. Check the figure in grayscale and, when practical, with a color-vision-deficiency simulator.
 
-- Use dark text on light fills.
-- Do not place small text on saturated color blocks.
-- Keep adjacent module fills visibly different, but use outlines and labels as additional cues.
-- Check a grayscale export. If categories collapse into the same gray, add line style, hatch,
-  marker, or label distinctions.
-- Reserve red for errors or exceptions; avoid using red as a generic decoration.
+## 3. Continuous color scales
 
-## 3. Typography defaults
+For heatmaps, segmentation confidence, microscopy intensities, field maps, and spatial densities:
 
-These are recommended starting values, not mandatory IEEE rules:
+- Use a sequential scale for low-to-high values.
+- Use a diverging scale only when there is a meaningful center or reference value.
+- Use a categorical palette for discrete classes.
+- Include a colorbar with units or a clear label.
+- Use the same scale across panels when direct comparison is intended.
+- Avoid rainbow maps for quantitative values when they create false boundaries or uneven perceptual steps.
 
-| Element | Starting point at final size |
-|---|---:|
-| Main module label | 8–9 pt |
-| Secondary module text | 7–8 pt |
-| Axis labels | 8–9 pt |
-| Tick labels | 7–8 pt |
-| Panel label | 9 pt bold |
-| Figure annotations | 7–8 pt |
+## 4. Typography
 
-- Use one sans-serif family for diagram labels (e.g. Arial, Helvetica, or a metrically compatible
-  sans-serif) unless the journal or project requires another.
-- Use a consistent serif/math font for equations when the chosen renderer supports it.
-- Keep module labels in sentence case or concise title case; avoid inconsistent capitalization.
-- Use italic for scalar mathematical variables and upright text for descriptive words.
-- Preserve exact subscripts, superscripts, Greek letters, and bit indices.
-- Avoid font sizes below 6.5 pt at final print size unless unavoidable and permitted by the venue.
-- Do not assume that a PDF's embedded font name equals the visual font family; inspect metadata or
-  font embedding when exact identification matters.
+- Follow the target publication's current font and size instructions.
+- Use a consistent type family and hierarchy across all figures in the paper.
+- Keep labels concise and readable at the final physical size.
+- Use italics for variables when mathematically appropriate, not for arbitrary emphasis.
+- Preserve Greek letters, subscripts, superscripts, units, and symbol case.
+- Avoid mixing unrelated font families or using decorative typefaces.
+- Do not treat one recommended point size as universal across all IEEE venues.
 
-## 4. Line and shape defaults
+Proceedings of the IEEE gives approximately 9–10 pt as a typography reference in its figure guidance. This is not a universal rule for every IEEE publication; check the target venue.
 
-Recommended starting values:
-- module outline: 0.8–1.0 pt;
-- primary signal line: 0.9–1.2 pt;
-- secondary/annotation line: 0.6–0.8 pt;
-- plot axes: 0.7–0.9 pt;
-- gridline: 0.35–0.5 pt, light gray;
-- corner radius: modest (4–7 px in SVG at a 1000 px-wide canvas).
+## 5. Lines, markers, and shapes
 
-Avoid excessively rounded UI-style cards. Academic diagrams should look like technical figures,
-not application dashboards.
+- Make lines and markers distinguishable at final print size.
+- Use marker shapes and line styles as secondary encodings.
+- Use consistent stroke weights for related diagrams.
+- Avoid overly thin axes, light gray labels, or pale lines that disappear when printed.
+- Do not add gradients, shadows, or pseudo-3D effects unless they encode a real scientific property.
 
-## 5. Consistency
+## 6. Domain-specific exceptions
 
-Store the palette as reusable tokens in source code. Never manually choose a new shade for the same
-semantic role in each figure. When inheriting an existing paper's color system, record the mapping
-and apply it consistently across all related figures.
+- Microscopy and medical images may require a fixed intensity or modality-specific display convention.
+- Antenna patterns and electromagnetic field plots may use field-specific conventions and units.
+- Circuit schematics may be more readable in monochrome.
+- Maps may need a color scheme that distinguishes land cover, elevation, or confidence.
+- Multi-panel comparisons must preserve the same semantic color mapping across the paper.
+
+When the user's existing paper has an established palette, preserve it unless the user requests a change.

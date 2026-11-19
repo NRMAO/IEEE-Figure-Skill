@@ -1,192 +1,204 @@
 ---
 name: ieee-figure-skill
 description: >
-  Design, generate, inspect, and refine publication-ready technical figures for IEEE-style
-  research papers. Use when a user asks to create or improve hardware architecture diagrams,
-  ECC/RS encoder or decoder diagrams, HBM/chiplet interconnect figures, algorithm flowcharts,
-  timing diagrams, dataflow diagrams, circuit illustrations, or quantitative performance/PPA
-  plots from prose, equations, RTL, CSV, Excel, or existing figures.
+  Design, generate, inspect, and refine publication-ready scientific figures for IEEE-style
+  journals and conferences across engineering, computing, physical sciences, and biomedical
+  research. Use for system diagrams, algorithms, neural-network architectures, experimental
+  setups, scientific plots, microscopy and medical-image panels, maps, trajectories, antenna
+  patterns, circuits, and multi-panel figures from prose, equations, code, or data.
 ---
 
-# IEEE Figure Skill
+# IEEE Academic Figure Skill
 
 ## Mission
 
-Create technically faithful, publication-ready research figures. Apply a consistent visual
-design system inspired by the reviewed DRAM, HBM, ECC, and interconnect literature, while
-adapting the graphic grammar to the figure type.
+Create scientifically faithful, readable, reproducible, and publication-ready figures for IEEE-style research. This Skill is domain-neutral: it does not assume a particular discipline, paper topic, software package, color palette, or diagram layout.
 
-**Priority order:** technical correctness > legibility at final print size > visual consistency
-> decorative polish. Never change a signal relationship, algorithm step, formula, data value,
-or hardware function merely to make a figure look cleaner.
+**The figure's scientific purpose determines its visual grammar.** A neural-network architecture, microscopy panel, circuit schematic, radiation pattern, map, and statistical plot should not be forced into one visual style.
 
-## When to use this skill
+Priority order:
 
-Use this skill when the user asks to:
+1. Scientific and technical correctness.
+2. Clarity of the message and correct visual encoding.
+3. Legibility at the final publication size.
+4. Accessibility and reproducibility.
+5. Aesthetic consistency.
 
-- create, redraw, or refine an IEEE-style research figure;
-- turn prose, equations, RTL, or a block-level description into a diagram;
-- visualize RS/ECC, HBM, DRAM, chiplet-interconnect, FPGA, or ASIC architecture;
-- draw algorithm/dataflow/timing/circuit diagrams;
-- create performance, reliability, area, delay, power, throughput, or error-rate plots;
-- analyze the visual style of figures in supplied research papers.
+Never alter scientific meaning, measured values, image evidence, mathematical relationships, or system connectivity merely to make a figure look cleaner.
 
-Do not use it for ordinary decorative illustrations, logos, or slide artwork unless the user
-explicitly wants a paper figure.
+## When to use
 
-## Source and evidence discipline
+Use this Skill when a user asks to:
 
-1. Treat user-provided RTL, equations, architecture descriptions, and measured data as the
-   authoritative technical sources.
-2. For literature-style analysis, distinguish:
-   - **Observed:** directly visible or stated in the supplied paper;
-   - **Estimated:** approximate visual measurements or inferred colors/fonts;
-   - **Recommendation:** a reusable design rule derived from the evidence.
-3. Never claim an exact font, point size, HEX color, line width, or IEEE-wide requirement unless
-   it is explicitly documented or measured reliably. Mark visual estimates as approximate.
-4. Do not copy a paper's complete figure. Extract general design principles and create original
-   diagrams. Do not upload source PDFs or copyrighted figure images to a public repository.
-5. If a critical connection, polarity, bus width, pipeline stage, code parameter, or algorithm
-   branch is unspecified, ask one focused question or mark the assumption visibly.
-6. Do not invent measured data. Preserve supplied values, units, significant digits, and
-   uncertainty. Label synthetic example data as illustrative.
+- create, redraw, or improve an IEEE-style research figure;
+- convert research prose, equations, algorithms, source code, or experimental methods into a figure;
+- create a system architecture, process workflow, model/network architecture, state machine, sequence diagram, or experimental setup;
+- visualize numerical results, statistics, time series, spectra, performance, uncertainty, or ablation studies;
+- prepare scientific image panels, microscopy composites, medical-image visualizations, maps, trajectories, or spatial plots;
+- analyze figure design patterns from supplied or publicly accessible research papers;
+- prepare editable figure sources and publication-ready exports.
 
-## Workflow
+Do not use it for decorative illustrations, logos, marketing graphics, or slide artwork unless the user explicitly requests a research-paper figure.
 
-### 1. Classify the requested figure
+## Core workflow
 
-Choose one primary type and any secondary types:
+### 1. Understand the figure request
 
-- architecture / system overview;
-- block diagram / datapath;
-- algorithm flowchart;
-- dataflow / memory mapping;
-- circuit / logic-gate structure;
-- timing / waveform diagram;
-- performance or reliability plot;
-- table;
-- mathematical or error-pattern illustration;
-- multi-panel composite figure.
+Identify:
 
-Read `references/figure-type-guidelines.md` for type-specific rules.
+- the one-sentence scientific message;
+- the intended reader and research domain;
+- the figure type and level of detail;
+- the source of truth (paper, equations, code, raw data, image, protocol, or user description);
+- the target journal/conference and its current artwork instructions;
+- target physical width (single column, double column, or custom);
+- required editable source and final formats;
+- whether the figure is conceptual, illustrative, or data-driven.
 
-### 2. Extract the technical model before drawing
+If one essential fact is missing, ask one focused question. Do not make users complete a long preference questionnaire when reasonable defaults are available.
 
-Create a compact internal specification:
+### 2. Classify the visual task
 
-- purpose and intended message of the figure;
-- inputs, outputs, modules, states, and transformations;
-- directed connections and signal names;
-- data widths, code parameters, units, and clock/time relationships;
-- parallel versus serial operations;
-- control versus data paths;
-- known constraints and unresolved assumptions.
+Choose one primary family and any secondary families:
 
-For RTL-derived figures:
-- identify module instances, ports, assignments, state machines, and hierarchy;
-- follow actual signal connectivity rather than module names alone;
-- distinguish combinational and sequential logic;
-- preserve bit widths, signedness, reset polarity, clock edge, and handshake semantics;
-- do not infer a physical floorplan from RTL unless asked;
-- show only the abstraction level requested (system, module, datapath, or gate level).
+- **Architecture and system diagrams:** hardware, software, networks, devices, infrastructure, and multi-agent systems.
+- **Algorithms and processes:** flowcharts, state machines, sequence diagrams, experimental workflows, and protocols.
+- **Model and data pipelines:** machine-learning networks, feature fusion, training/inference, and data processing.
+- **Experimental setup and geometry:** apparatus, measurement configuration, coordinate frames, and instrumentation.
+- **Scientific illustrations:** physical mechanisms, biological structures, materials, field distributions, and conceptual models.
+- **Quantitative plots:** line, scatter, bar, box, violin, histogram, heatmap, ROC/PR, survival, polar, and uncertainty plots.
+- **Spatial and image figures:** microscopy, pathology, medical imaging, remote sensing, maps, segmentation, and trajectories.
+- **Tables and mathematical figures:** exact-value summaries, equations, matrices, and derivation illustrations.
+- **Multi-panel composites:** coordinated combinations of the above.
 
-For RS/ECC figures:
-- distinguish code construction, encoding, syndrome generation, error-location search,
-  error-magnitude calculation, correction, and verification;
-- keep symbol width, codeword length, message length, parity count, field, primitive polynomial,
-  and correction capability explicit when supplied;
-- distinguish a general RS decoder from a shortened/single-symbol or application-specific decoder;
-- do not insert Berlekamp–Massey, Chien search, Forney evaluation, inverse LUTs, or other blocks
-  unless they belong to the specified architecture;
-- mark GF multiplication, constant multiplication, XOR, lookup, comparison, and reduction
-  operations accurately.
+Read the relevant sections of references/figure-type-guidelines.md and references/domain-routing-matrix.md.
 
-### 3. Select the visual grammar
+### 3. Extract the scientific model
 
-Use the defaults in `references/ieee-figure-design-rules.md` and
-`references/color-and-typography.md`. Do not force all figure types into the same appearance.
+Before drawing, create a concise specification:
 
-Default approach:
-- hardware architecture and logic: white background, dark outlines, restrained blue fills,
-  limited orange emphasis, and red only for error/exception paths;
-- timing and mathematical illustrations: primarily monochrome, with color only to identify
-  selected signals or cases;
-- performance plots: clear categorical palette, explicit units, readable axes and legends;
-- multi-panel figures: consistent panel labels, spacing, type scale, and color semantics.
+- inputs, outputs, entities, variables, and transformations;
+- modules, states, events, and directed connections;
+- dimensions, units, coordinate systems, scale bars, and sampling conditions;
+- parallel, sequential, feedback, and optional relationships;
+- data groups, sample sizes, statistical tests, and uncertainty definitions;
+- image source, acquisition method, ROI, orientation, and registration status;
+- assumptions, unknowns, and evidence that supports each element.
 
-### 4. Choose a reproducible output format
+For code-derived figures, inspect actual ports, assignments, function calls, data structures, and control flow. Do not infer a connection from a module name alone.
 
-Prefer editable vector and source outputs:
+For data-derived figures, use the supplied data as the source of truth. Preserve missing values, sample sizes, units, statistical definitions, and relevant outliers. Do not invent measurements, error bars, confidence intervals, or statistical significance.
 
-| Figure type | Preferred source | Publication output |
+For image-derived figures, preserve the original image evidence. Distinguish permitted visualization adjustments from scientific alteration. Consult references/visualization-ethics.md.
+
+### 4. Select the correct visual grammar
+
+Use the domain routing matrix to select shapes, marks, connectors, labels, colors, and layout.
+
+General rules:
+
+- one primary message per figure;
+- a clear reading order;
+- consistent visual encoding across related panels;
+- labels close to the object or signal they identify;
+- units on axes and dimensions on physical drawings;
+- explicit legends, scale bars, coordinate frames, and map references where needed;
+- no unexplained symbols, ambiguous arrows, or decorative effects that compete with evidence;
+- color is never the only cue for a critical distinction;
+- use monochrome when it communicates the content more clearly.
+
+Do not apply a fixed blue/orange/teal palette to every field. A palette is a tool, not a universal IEEE style.
+
+### 5. Choose an editable and reproducible format
+
+Select the format that best preserves scientific meaning and editability.
+
+| Figure task | Useful source formats | Common publication exports |
 |---|---|---|
-| Architecture / block diagram | SVG, Graphviz DOT, Mermaid, or PPTX | SVG + PDF |
-| Algorithm flowchart | Mermaid or Graphviz | SVG + PDF |
-| Timing diagram | SVG or waveform-generation script | SVG + PDF |
-| Performance plot | Python + Matplotlib + CSV | PDF + SVG + PNG preview |
-| Mathematical illustration | SVG, TikZ, or LaTeX | PDF + SVG |
-| Table | LaTeX tabular source or CSV-driven script | LaTeX / PDF / SVG |
+| Architecture / block diagram | SVG, Graphviz DOT, Mermaid, PPTX | PDF, SVG, EPS |
+| Workflow / state / sequence | Mermaid, Graphviz, SVG | PDF, SVG, EPS |
+| Neural-network architecture | SVG, PPTX, Graphviz, Python | PDF, SVG |
+| Quantitative plots | Python/Matplotlib, MATLAB, R, CSV | PDF, SVG, EPS, TIFF/PNG |
+| Microscopy / medical-image composite | Python, ImageJ/Fiji, QuPath, SVG | TIFF, PNG, PDF |
+| Spatial / geospatial figure | Python, GIS tools, SVG | PDF, SVG, TIFF |
+| Antenna / field / polar plot | MATLAB, Python, CSV, SVG | PDF, EPS, SVG |
+| Tables / equations | LaTeX, CSV, Python | LaTeX, PDF |
 
-Choose the tool that preserves editability and correctness. Do not use a raster-only image
-generator when the user requires exact labels, editable geometry, or data fidelity.
+Prefer vector formats for diagrams, line art, plots, and text. Use raster formats when the scientific content itself is raster imagery, such as microscopy, photographs, or medical scans.
 
-### 5. Compose the figure
+Do not use a raster-only image generator when exact text, editable geometry, source code, or data fidelity is required.
 
-- Determine final physical width first: single-column, double-column, or custom.
-- Build a clear reading order (usually left-to-right for datapaths and top-to-bottom for
-  algorithms).
-- Group related modules and show hierarchy without excessive nested boxes.
-- Align module edges and distribute whitespace deliberately.
-- Route connectors orthogonally where practical; avoid crossings and ambiguous junctions.
-- Put signal names and bus widths close to the relevant wire.
-- Keep text horizontal unless a technical convention requires otherwise.
-- Use a consistent visual distinction for data, control, clock/reset, error, and optional paths.
-- Use the least color needed to communicate meaning.
+### 6. Compose at final size
 
-### 6. Generate source and publication assets
+- Determine the final column width before arranging content.
+- Use a grid and consistent alignment.
+- Keep enough whitespace around labels, symbols, legends, and panel boundaries.
+- Avoid connector crossings and ambiguous junctions.
+- Keep text readable after the figure is reduced to its intended print size.
+- Use panel labels consistently, such as (a), (b), and (c).
+- Keep repeated group colors and marker meanings stable across related figures.
+- Do not compress a complex figure into one panel if separate panels would communicate the science more clearly.
 
-Deliver, where applicable:
-- editable source file (SVG / DOT / Mermaid / Python / TikZ / PPTX);
-- vector publication file (PDF and/or SVG);
-- high-resolution PNG preview (normally 300–600 dpi for raster export);
-- any data file needed to reproduce a plot;
-- short notes describing assumptions and how to edit/regenerate the figure.
+### 7. Export and validate
 
-For plots, include the exact input data and script. Never silently alter or normalize values.
-If normalization is used, state the baseline and formula in the figure or caption.
+Deliver, where appropriate:
 
-### 7. Validate before delivery
+- editable source;
+- vector publication export;
+- high-resolution raster export if required;
+- input data and regeneration script for data-driven figures;
+- a brief note describing assumptions and non-obvious visual encodings.
 
-Use `references/quality-checklist.md`. At minimum verify:
-- all labels, subscripts, superscripts, symbols, and units;
-- every arrow's source, destination, and direction;
-- every bus width and module name against the source;
-- panel labels and caption references;
-- no clipped text, overlapping objects, accidental line crossings, or tiny labels;
-- color contrast and grayscale distinguishability;
-- readability at the actual target column width;
-- SVG/PDF opens correctly and the source regenerates the output.
+Use references/quality-checklist.md before delivery. Check the actual target venue's instructions rather than assuming all IEEE publications use identical requirements.
 
-If the environment cannot render or execute a format, say so; do not claim a successful test.
+## Domain adapters
+
+The Skill is general-purpose, but it must adapt to the science:
+
+- **Circuits, electronics, and computing:** preserve signal direction, bus widths, timing, register boundaries, interface semantics, and actual module connectivity.
+- **Communications and signal processing:** preserve units, sampling rates, frequency/time axes, phase conventions, signal paths, modulation, and spectral interpretation.
+- **AI and computer vision:** distinguish training from inference, model blocks from data, feature maps from predictions, and quantitative metrics from qualitative examples.
+- **Biomedical and life sciences:** preserve sample identity, cohort/group definitions, image provenance, scale bars, ROI, spatial registration, and statistical meaning.
+- **Robotics and control:** preserve coordinate frames, sensor locations, transformations, trajectories, state transitions, and feedback direction.
+- **Power and energy:** distinguish electrical topology from control logic, label voltage/current/power units, and preserve operating states and protection paths.
+- **Antennas and electromagnetics:** preserve geometry, coordinate axes, polarization, frequency, gain units, reference planes, and simulation-versus-measurement identity.
+- **Remote sensing and geospatial science:** preserve map projection, spatial extent, north direction, scale, resolution, acquisition date, and class-mask semantics.
+- **Materials and physical sciences:** preserve material phases, crystallographic orientation, microscopy scale bars, acquisition conditions, and measurement provenance.
+
+The examples and paper corpus are representative starting points, not an exhaustive survey of every IEEE field.
+
+## Literature and evidence discipline
+
+When analyzing research papers:
+
+1. Prefer the final published IEEE version when legally and technically accessible.
+2. An accepted manuscript or author preprint may be used, but label the version accurately.
+3. Separate **visually inspected full text**, **text/caption inspected**, and **metadata/abstract only** evidence.
+4. Do not infer figure style from a title or abstract alone.
+5. Distinguish an observed design choice from a recommendation derived from it.
+6. Do not claim that a visual choice is an IEEE-wide rule unless the official author instructions say so.
+7. Do not bundle publisher PDFs, copied figures, or restricted third-party images in a public repository.
+
+See references/ieee-paper-corpus.md and references/ieee-publication-baseline.md.
 
 ## Interaction rules
 
-- If all essential technical facts are present, proceed without asking preference questions.
-- If one essential fact is missing, ask one concise question.
-- If assumptions are unavoidable, list them before or alongside the deliverable.
-- Do not ask the user to restate information already present in supplied files or the conversation.
-- When refining an existing figure, preserve its scientific meaning and identify any proposed
-  semantic change separately from purely visual edits.
+- If the user's supplied source is sufficient, proceed without asking them to repeat information.
+- If a source file is missing or unreadable, say which part could not be inspected.
+- If a visual is conceptual, label it as conceptual.
+- If a diagram contains inferred elements, list those assumptions.
+- When editing an existing figure, preserve the scientific meaning and report any proposed semantic change separately from visual edits.
+- Never claim a file was rendered, tested, or validated unless that check actually succeeded.
 
 ## Repository references
 
-Consult only the references relevant to the current task:
+- references/ieee-publication-baseline.md — official IEEE baseline guidance and venue-specific caveats.
+- references/ieee-paper-corpus.md — cross-domain IEEE paper examples and evidence levels.
+- references/domain-routing-matrix.md — how to adapt figure grammar to research domains.
+- references/figure-type-guidelines.md — detailed guidance by figure type.
+- references/color-and-typography.md — accessible color and typography principles.
+- references/visualization-ethics.md — data, image, and scientific-integrity rules.
+- references/quality-checklist.md — final quality checks.
+- references/paper-style-analysis.md — original hardware-focused seed corpus retained as one optional specialty case study.
 
-- `references/paper-style-analysis.md` — observations from the supplied papers.
-- `references/ieee-figure-design-rules.md` — common visual system and design tokens.
-- `references/color-and-typography.md` — palette, type, strokes, and print-size defaults.
-- `references/figure-type-guidelines.md` — architecture, flowchart, timing, plot, table, and
-  mathematical figure rules.
-- `references/quality-checklist.md` — pre-delivery checks.
-
-Templates and examples are under `templates/` and `examples/`.
+Templates and examples are under templates/ and examples/.

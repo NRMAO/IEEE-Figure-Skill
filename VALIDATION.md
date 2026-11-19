@@ -1,43 +1,47 @@
-# Validation report
+# Validation Report
 
 Date: 2026-11-19
 
-## Local package checks
+## Scope update
 
-- Reviewed figure-bearing pages of eight unique supplied papers (nine PDF uploads; the Kwon 2026
-  paper appeared twice).
-- Recorded figure locations, subject matter, and observed visual patterns in
-  `references/paper-style-analysis.md`.
-- Confirmed the package contains no source-paper PDF files and no copied paper figures.
-- Parsed authored SVG files as XML.
-- Rendered the original RS encoder concept and Kwon-derived SSEC decoder flow to PNG; exported the
-  decoder flow to PDF.
-- Executed `examples/performance-example/plot_sample.py` successfully with the bundled
-  demonstration CSV. The script generated PDF, SVG, and PNG outputs for each platform/metric group.
-- Confirmed the example CSV keeps ASIC metrics and FPGA metrics separate.
-- Confirmed the Python plot scripts compile.
+The repository has been broadened from a hardware/memory-focused seed project into a domain-neutral IEEE academic figure Skill.
 
-## Remote repository checks
+The main Skill now covers architecture, algorithms, model/data pipelines, experimental setups, scientific illustrations, quantitative plots, microscopy/medical images, maps/trajectories, and multi-panel composites.
 
-- Confirmed `NRMAO/IEEE-Figure-Skill` is public and uses `main` as its default branch.
-- Confirmed the connected account has push/admin permissions.
-- Uploaded 26 source/documentation files in the initial source-tree commit; a follow-up commit
-  finalized this validation record.
-- Verified the remote commit and fetched the root README, `SKILL.md`, paper-style analysis, and
-  original RS encoder SVG from `main`.
-- The repository contains editable documentation, SVG/Mermaid/Python sources, and example CSV data.
-  Generated PDF/PNG preview binaries are not part of the Git commit; the plotting script regenerates
-  them locally. The original source-paper PDFs are intentionally excluded.
+## Literature research
 
-## Not yet verified
+The cross-domain paper corpus includes IEEE journal papers from:
+- IEEE Transactions on Instrumentation and Measurement
+- IEEE Transactions on Control Systems Technology
+- IEEE Transactions on Signal Processing
+- IEEE Robotics and Automation Letters
+- IEEE Transactions on Geoscience and Remote Sensing
+- IEEE Transactions on Antennas and Propagation
+- IEEE Transactions on Medical Imaging
+- IEEE Transactions on Biomedical Engineering
+- IEEE Access
+- IEEE Transactions on Industrial Informatics
+- IEEE Transactions on Industrial Electronics
 
-- Mermaid flowchart sources were checked as text but not rendered in this environment.
-- No RTL-specific encoder architecture was validated because no encoder RTL or complete
-  implementation specification was included. The RS encoder SVG is explicitly conceptual.
-- No claim is made that the Skill has been installed into a particular agent runtime; installation
-  paths differ by platform.
+Evidence levels are explicitly stated. Six papers received full-text or figure-level inspection; additional papers are metadata/abstract-level candidates and are not described as visually inspected.
 
-## Demonstration data warning
+## Official publication guidance
 
-The values in `examples/performance-example/sample_metrics.csv` are synthetic demonstration
-values. They are not results from the uploaded papers or from the user's experiments.
+The repository now links to the IEEE Author Center's graphics guidance and Proceedings of the IEEE figure/table guidance. The documentation distinguishes official baseline guidance from general recommendations and repeatedly instructs users to check the target publication's current author instructions.
+
+## Repository and content checks
+
+- Main SKILL.md is domain-neutral and no longer treats HBM, RS, DRAM, or chiplet interconnects as the default scope.
+- Original HBM/RS examples and the initial hardware-focused analysis are retained only as optional specialty material.
+- Cross-domain examples are original illustrations, not copies or traced versions of paper figures.
+- Source-paper PDFs are not bundled.
+- Synthetic example geometry is labelled as conceptual.
+- The antenna polar-plot template requires real user-supplied data; it contains no fabricated measurement series.
+
+## Limitations
+
+- The paper corpus is representative, not exhaustive or systematic.
+- Full-text visual inspection is uneven across domains; papers with metadata-only evidence are labelled accordingly.
+- Materials and physical-science figure guidance is included as a domain adapter, but the current IEEE paper corpus has limited direct materials-science coverage.
+- The Mermaid source examples are not claimed as rendered unless a rendering test is separately recorded.
+- No claim is made that the Skill has been installed into a particular agent runtime; installation paths differ by platform.

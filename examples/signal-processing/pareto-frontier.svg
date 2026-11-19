@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="720" viewBox="0 0 1000 720">
+  <title>Generic Pareto trade-off illustration</title>
+  <desc>Conceptual plot showing two competing objectives, a feasible region, and a Pareto frontier. No measured data are represented.</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#263442"/></marker>
+    <style>
+      .t{font-family:Arial,Helvetica,sans-serif;fill:#263442}
+      .h{font-size:26px;font-weight:700}
+      .s{font-size:18px}
+      .n{font-size:14px;fill:#667085}
+      .axis{stroke:#263442;stroke-width:2.5;fill:none;marker-end:url(#a)}
+      .front{stroke:#0072B2;stroke-width:5;fill:none}
+      .dash{stroke:#98A2B3;stroke-width:1.6;stroke-dasharray:7 7}
+    </style>
+  </defs>
+  <rect width="1000" height="720" fill="#FFFFFF"/>
+  <text x="55" y="58" class="t h">Two-objective trade-off — conceptual example</text>
+  <text x="55" y="88" class="t n">Illustrative geometry only. Replace with the actual objective definitions and computed results.</text>
+
+  <path d="M170 590 V150" class="axis"/>
+  <path d="M170 590 H850" class="axis"/>
+  <text x="510" y="665" text-anchor="middle" class="t s">Objective 1 (define metric and direction)</text>
+  <text x="65" y="370" text-anchor="middle" class="t s" transform="rotate(-90 65 370)">Objective 2 (define metric and direction)</text>
+
+  <path d="M235 560 C310 440 395 350 495 285 C600 220 715 205 805 195 L805 590 L235 590 Z" fill="#EAF2F8" opacity="0.9"/>
+  <path d="M235 560 C310 440 395 350 495 285 C600 220 715 205 805 195" class="front"/>
+  <text x="560" y="180" class="t s" fill="#0072B2">Pareto frontier</text>
+
+  <path d="M235 560 V590 M495 285 V590 M805 195 V590" class="dash"/>
+  <circle cx="235" cy="560" r="8" fill="#D55E00" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="805" cy="195" r="8" fill="#D55E00" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="250" y="545" class="t s">Extreme A</text>
+  <text x="690" y="170" class="t s">Extreme B</text>
+  <text x="450" y="420" class="t s" fill="#667085">Feasible trade-off region</text>
+  <text x="55" y="700" class="t n">Do not assume which direction is optimal; state whether each objective is minimized or maximized.</text>
+</svg>
