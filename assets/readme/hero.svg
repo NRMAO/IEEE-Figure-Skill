@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="460" viewBox="0 0 1600 460" role="img" aria-labelledby="title desc">
+  <title id="title">Design the science. Then design the figure.</title>
+  <desc id="desc">A dark, modern scientific design banner showing system diagrams, quantitative plots, spatial data, and multi-panel figures.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#091525"/>
+      <stop offset="0.58" stop-color="#10243A"/>
+      <stop offset="1" stop-color="#0A1829"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#27C4B5" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#27C4B5" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F5B85B"/>
+      <stop offset="1" stop-color="#F28B55"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#8BA4BE" stroke-opacity=".08" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#020812" flood-opacity=".34"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="460" rx="24" fill="url(#bg)"/>
+  <rect width="1600" height="460" rx="24" fill="url(#grid)"/>
+  <circle cx="690" cy="55" r="360" fill="url(#glow)"/>
+  <path d="M0 385C250 330 430 475 700 398S1180 290 1600 380V460H0Z" fill="#071321" opacity=".42"/>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="78" y="66" width="264" height="34" rx="17" fill="#173A4B" stroke="#2A7D7B" stroke-opacity=".8"/>
+    <circle cx="98" cy="83" r="5" fill="#4AD6C5"/>
+    <text x="114" y="89" fill="#9CE8DE" font-size="15" font-weight="700" letter-spacing="2.1">A DOMAIN-NEUTRAL AGENT SKILL</text>
+
+    <text x="78" y="174" fill="#F5F8FC" font-size="58" font-weight="750" letter-spacing="-1.8">Design the science.</text>
+    <text x="78" y="244" fill="#F5F8FC" font-size="58" font-weight="750" letter-spacing="-1.8">Then design the figure.</text>
+    <text x="82" y="294" fill="#B8C8D8" font-size="22">From research intent, methods, and data to clear,</text>
+    <text x="82" y="326" fill="#B8C8D8" font-size="22">editable, publication-ready scientific visuals.</text>
+
+    <g font-size="14" font-weight="650">
+      <rect x="80" y="366" width="144" height="34" rx="17" fill="#1A3448" stroke="#31536B"/>
+      <text x="152" y="388" fill="#D9E8F5" text-anchor="middle">PURPOSE-FIRST</text>
+      <rect x="236" y="366" width="135" height="34" rx="17" fill="#1A3448" stroke="#31536B"/>
+      <text x="303.5" y="388" fill="#D9E8F5" text-anchor="middle">EDITABLE</text>
+      <rect x="383" y="366" width="151" height="34" rx="17" fill="#1A3448" stroke="#31536B"/>
+      <text x="458.5" y="388" fill="#D9E8F5" text-anchor="middle">EVIDENCE-LED</text>
+      <rect x="546" y="366" width="170" height="34" rx="17" fill="#1A3448" stroke="#31536B"/>
+      <text x="631" y="388" fill="#D9E8F5" text-anchor="middle">QUALITY-AWARE</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="850" y="48" width="316" height="166" rx="18" fill="#13283D" stroke="#35506A"/>
+    <rect x="1184" y="48" width="336" height="166" rx="18" fill="#13283D" stroke="#35506A"/>
+    <rect x="850" y="232" width="316" height="166" rx="18" fill="#13283D" stroke="#35506A"/>
+    <rect x="1184" y="232" width="336" height="166" rx="18" fill="#13283D" stroke="#35506A"/>
+  </g>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#8FA8BE">
+    <text x="875" y="77">SYSTEM FLOW</text>
+    <text x="1209" y="77">QUANTITATIVE PLOT</text>
+    <text x="875" y="261">SPATIAL / IMAGE PANEL</text>
+    <text x="1209" y="261">MULTI-PANEL FIGURE</text>
+  </g>
+
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g>
+      <rect x="875" y="111" width="68" height="54" rx="9" fill="#1B4354" stroke="#3B9C9A"/>
+      <rect x="970" y="111" width="68" height="54" rx="9" fill="#203A59" stroke="#5C8FC4"/>
+      <rect x="1065" y="111" width="76" height="54" rx="9" fill="#3D3547" stroke="#D39A58"/>
+      <path d="M943 138H968M1038 138H1063" stroke="#A8C1D5" stroke-width="2.5"/>
+      <path d="M961 132L969 138L961 144M1056 132L1064 138L1056 144" fill="none" stroke="#A8C1D5" stroke-width="2"/>
+      <path d="M890 126H928M890 136H921M890 146H914" stroke="#A9DCD6" stroke-width="3" opacity=".9"/>
+      <path d="M985 126H1022M985 136H1016M985 146H1025" stroke="#B9D5F0" stroke-width="3" opacity=".9"/>
+      <path d="M1080 126H1125M1080 136H1117M1080 146H1128" stroke="#F1C58A" stroke-width="3" opacity=".9"/>
+    </g>
+
+    <g>
+      <path d="M1213 177V99M1213 177H1493" stroke="#6F879D" stroke-width="1.7"/>
+      <path d="M1224 160C1254 151 1262 123 1294 135S1341 164 1368 128S1422 105 1480 91" fill="none" stroke="#43D1BE" stroke-width="4"/>
+      <path d="M1224 145C1260 142 1274 157 1306 149S1360 132 1391 143S1444 155 1480 137" fill="none" stroke="#F3B45F" stroke-width="3" stroke-dasharray="7 6"/>
+      <g fill="#43D1BE" stroke="#13283D" stroke-width="2">
+        <circle cx="1294" cy="135" r="5"/><circle cx="1368" cy="128" r="5"/><circle cx="1480" cy="91" r="5"/>
+      </g>
+      <g fill="#F3B45F">
+        <circle cx="1306" cy="149" r="4"/><circle cx="1391" cy="143" r="4"/><circle cx="1480" cy="137" r="4"/>
+      </g>
+    </g>
+
+    <g>
+      <rect x="876" y="278" width="264" height="96" rx="10" fill="#0D1D2E" stroke="#2B455D"/>
+      <g fill="#3BC6B5" opacity=".9">
+        <circle cx="899" cy="301" r="5"/><circle cx="924" cy="296" r="4"/><circle cx="949" cy="306" r="6"/>
+        <circle cx="975" cy="293" r="4"/><circle cx="1001" cy="307" r="5"/><circle cx="1025" cy="297" r="4"/>
+        <circle cx="1050" cy="311" r="5"/><circle cx="1080" cy="298" r="4"/><circle cx="1110" cy="307" r="5"/>
+      </g>
+      <g fill="#F0B35C" opacity=".9">
+        <circle cx="910" cy="338" r="5"/><circle cx="936" cy="349" r="4"/><circle cx="961" cy="334" r="5"/>
+        <circle cx="989" cy="350" r="6"/><circle cx="1014" cy="337" r="4"/><circle cx="1040" cy="349" r="5"/>
+        <circle cx="1067" cy="336" r="4"/><circle cx="1094" cy="350" r="5"/><circle cx="1120" cy="337" r="4"/>
+      </g>
+    </g>
+
+    <g>
+      <rect x="1209" y="281" width="136" height="92" rx="10" fill="#0D1D2E" stroke="#35506A"/>
+      <rect x="1358" y="281" width="136" height="92" rx="10" fill="#0D1D2E" stroke="#35506A"/>
+      <rect x="1221" y="293" width="35" height="24" rx="4" fill="#1E5660"/>
+      <rect x="1264" y="293" width="68" height="24" rx="4" fill="#29415C"/>
+      <path d="M1222 348L1240 331L1258 340L1280 323L1319 344" fill="none" stroke="#43D1BE" stroke-width="3"/>
+      <rect x="1370" y="293" width="112" height="24" rx="4" fill="#3C3547"/>
+      <g fill="#F0B35C">
+        <rect x="1372" y="329" width="15" height="29" rx="3"/>
+        <rect x="1395" y="317" width="15" height="41" rx="3"/>
+        <rect x="1418" y="337" width="15" height="21" rx="3"/>
+        <rect x="1441" y="307" width="15" height="51" rx="3"/>
+        <rect x="1464" y="322" width="15" height="36" rx="3"/>
+      </g>
+    </g>
+  </g>
+</svg>
