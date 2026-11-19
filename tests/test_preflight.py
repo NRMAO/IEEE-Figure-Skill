@@ -162,3 +162,25 @@ def test_cli_figure_override_is_relative_to_working_directory(tmp_path: Path, mo
         "--skip-browser",
     ])
     assert code == 0
+
+
+def test_pdf_dimensions_and_font_preflight(tmp_path: Path):
+    import fitz
+
+    path = tmp_path / "figure.pdf"
+    doc = fitz.open()
+    page = doc.new_page(width=3.5 * 72, height=2.5 * 72)
+    page.insert_text((30, 40), "PDF preflight test", fontsize=10)
+    doc.save(path)
+    doc.close()
+
+    report = run_preflight(
+        path,
+        {"caption": "Fig. 1. Test.", "target_width_in": 3.5, "target_height_in": 2.5},
+        PROFILE,
+        "test",
+        True,
+    )
+    assert report.metrics["pdf_page_size_in"] == [3.5, 2.5]
+    assert report.metrics["pdf_text_characters"] > 0
+    assert "pdf_fonts" in report.metrics
