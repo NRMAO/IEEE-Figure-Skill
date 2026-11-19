@@ -413,10 +413,12 @@ def check_raster(path: Path, manifest: dict[str, Any], profile: dict[str, Any], 
             target_w = float(manifest["target_width_in"]) if manifest.get("target_width_in") else None
             target_h = float(manifest["target_height_in"]) if manifest.get("target_height_in") else None
             effective = None
-            if target_w:
-                dx = width_px / target_w
-                dy = height_px / target_h if target_h else (dpi[1] if dpi else dx)
-                effective = (dx, dy)
+            if target_w and target_h:
+                effective = (width_px / target_w, height_px / target_h)
+            elif target_w:
+                effective = (width_px / target_w, width_px / target_w)
+            elif target_h:
+                effective = (height_px / target_h, height_px / target_h)
             elif dpi:
                 effective = dpi
             if effective:
